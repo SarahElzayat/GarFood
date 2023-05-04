@@ -1,0 +1,30 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 26.03.2012 09:54:51
+
+newmtl 13917_Pepperoni
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13917_Pepperoni_diffuse.jpg
+	map_Kd 13917_Pepperoni_diffuse.jpg
+
+newmtl plate
+	Ns 15.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.9529 0.9529 0.9529
+	Kd 0.9529 0.9529 0.9529
+	Ks 0.2250 0.2250 0.2250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka plate_diffuse.jpg
+	map_Kd plate_diffuse.jpg

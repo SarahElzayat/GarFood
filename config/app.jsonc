@@ -30,13 +30,15 @@
                 "grass": "assets/textures/grass_ground_d.jpg",
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
-                "monkey": "assets/textures/monkey.png"
+                "monkey": "assets/textures/monkey.png",
+                "bird": "assets/textures/bird.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
-                "sphere": "assets/models/sphere.obj"
+                "sphere": "assets/models/sphere.obj",
+                "bird": "assets/models/bird.obj"
             },
             "samplers":{
                 "default":{},
@@ -110,6 +112,21 @@
                     "texture": "monkey",
                     "sampler": "default"
                 },
+                "bird":{
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "bird",
+                    "sampler": "default"
+                },
                 "moon":{
                     "type": "textured",
                     "shader": "textured",
@@ -168,6 +185,26 @@
                     }
                 ]
             },
+            
+            {
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "position" : [1, 1, 1],
+
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "bird",
+                        "material": "bird"
+                    },
+                    {
+                        "type": "Movement",
+                        "linearVelocity": [0.1, 0, 0]
+                        // "angularVelocity": [0, 45, 0]
+                    }
+                ]
+            },
+            
             {
                 "position": [0, -1, 0],
                 "rotation": [-90, 0, 0],
