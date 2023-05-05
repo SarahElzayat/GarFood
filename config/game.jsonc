@@ -28,13 +28,18 @@
                 "road": "assets/textures/road.jpg",
                 "bird": "assets/textures/bird.jpg",
                 "cat": "assets/textures/cat.jpg",
-                "fish":  "assets/textures/fish.jpg"
+                "fish":  "assets/textures/fish.jpg",
+                "fish2":  "assets/textures/fish2.jpg",
+                "dog":  "assets/textures/dog.jpg"
+
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
                 "bird": "assets/models/bird.obj",
                 "cat": "assets/models/cat.obj",
-                "fish": "assets/models/fish.obj"
+                "fish": "assets/models/fish.obj",
+                "fish2": "assets/models/fish2.obj",
+                "dog": "assets/models/dog.obj"
             },
             "samplers": {
                 "default": {},
@@ -83,6 +88,26 @@
                     "texture": "bird",
                     "sampler": "default"
                 },
+                "dog": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "dog",
+                    "sampler": "default"
+                },
                 "cat": {
                     "type": "textured",
                     "shader": "textured",
@@ -121,6 +146,26 @@
                         1
                     ],
                     "texture": "fish",
+                    "sampler": "default"
+                },
+                "fish2": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "fish2",
                     "sampler": "default"
                 }
             }
@@ -223,17 +268,53 @@
                     }
                 ]
             },
-
-            ///         rewards         ////
             {
-                "position": [-1.5, 0.5, -0.5],
+                "position": [0, -1, -120],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [6, 15, 0],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [0, -1, -150],
+                "rotation": [-90, 0, 0],
+                "scale": [6, 15, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [0, -1, -180],
+                "rotation": [-90, 0, 0],
+                "scale": [6, 15, 0],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+
+            ///         rewards         ///
+            {
+                "position": [-1.5, 0.5, -0.5],
+                "rotation": [-90, 0, 0],
+                "scale": [0.06, 0.06, 0.06],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -244,12 +325,12 @@
             {
                 "position": [3, 0.5, -10],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -260,12 +341,12 @@
             {
                 "position": [0, 0.5, -20],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -276,12 +357,12 @@
             {
                 "position": [-2, 0.5, -30],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -293,12 +374,12 @@
             {
                 "position": [1, 0.5, -40],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -309,12 +390,12 @@
             {
                 "position": [-3.5, 0.5, -50],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -325,12 +406,12 @@
             {
                 "position": [3.5, 0.5, -60],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
@@ -341,19 +422,116 @@
             {
                 "position": [-2, 0.5, -70],
                 "rotation": [-90, 0, 0],
-                "scale": [1, 1, 1],
+                "scale": [0.06, 0.06, 0.06],
                 "components": [
                     {
                         "type": "Mesh Renderer",
-                        "mesh": "fish",
-                        "material": "fish"
+                        "mesh": "fish2",
+                        "material": "fish2"
                     }, 
                     {
                         "type": "Movement",
                         "angularVelocity": [0, 70, 0]
                     }
                 ]
+            },
+
+            ///         penalties       ///
+
+            {
+                "position": [2, -0.5, -2],
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    }
+                ]
+            },
+
+            {
+                "position": [-3, -0.5, -12],
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    }, 
+                    {
+                        "type": "Movement"
+                    }
+                ]
+            },
+
+            {
+                "position": [-2, -0.5, -25],
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    }, 
+                    {
+                        "type": "Movement"
+                    }
+                ]
+            },
+
+            {
+                "position": [2, -0.5, -35],
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    }, 
+                    {
+                        "type": "Movement"
+                    }
+                ]
+            },
+
+            {
+                "position": [3, -0.5, -45],
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    }, 
+                    {
+                        "type": "Movement"
+                    }
+                ]
+            },
+
+            {
+                "position": [2, -0.5, -55],
+                "rotation": [-90, 0, 0],
+                "scale": [0.1, 0.1, 0.1],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "dog",
+                        "material": "dog"
+                    }, 
+                    {
+                        "type": "Movement"
+                    }
+                ]
             }
+
+            
             
         ]
     }
