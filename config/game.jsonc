@@ -11,7 +11,7 @@
     "scene": {
         "renderer": {
             "sky": "assets/textures/cartoon_sky.jpg"
-            // "postprocess": "assets/shaders/postprocess/grayscale.frag"
+            // "postprocess": "assets/shaders/postprocess/radial-blur.frag"
         },
         "assets": {
             "shaders": {
@@ -25,13 +25,15 @@
                 }
             },
             "textures": {
-                "road": "assets/textures/road.jpg",
+                "road": "assets/textures/road5.jpg",
                 "bird": "assets/textures/bird.jpg",
                 "cat": "assets/textures/cat.jpg",
-                "fish":  "assets/textures/fish.jpg",
-                "fish2":  "assets/textures/fish2.jpg",
-                "dog":  "assets/textures/dog.jpg"
-
+                "fish": "assets/textures/fish.jpg",
+                "fish2": "assets/textures/fish2.jpg",
+                "dog": "assets/textures/dog.jpg",
+                "gravel": "assets/textures/gravel.jpg",
+                "pebbles": "assets/textures/pebbels.jpg",
+                "fence1": "assets/textures/fence2.jpg"
             },
             "meshes": {
                 "plane": "assets/models/plane.obj",
@@ -66,6 +68,48 @@
                         1
                     ],
                     "texture": "road",
+                    "sampler": "default"
+                },
+                "pebbles": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "texture": "pebbles",
+                    "sampler": "default"
+                },
+                "fence1": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                        "faceCulling": {
+                            "enabled": false
+                        },
+                        "depthTesting": {
+                            "enabled": true
+                        }
+                    },
+                    "tint": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "transparent": true,
+
+                    "texture": "fence1",
                     "sampler": "default"
                 },
                 "bird": {
@@ -217,231 +261,1810 @@
                     }
                 ]
             },
+            //--------- Side road-----------// 
+            //---------- right-----------//
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -0.2
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- left-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -0.2
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- right-----------//
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -14
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- left-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -14
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- right-----------//
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -26
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- left-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -26
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- right-----------//
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -38
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- left-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -38
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -38
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- left-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -38
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- right-----------//
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -52
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -52
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -66
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -66
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -80
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -80
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -94
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -94
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -108
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -108
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -122
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -122
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -136
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -136
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -140
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -140
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -154
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -154
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -168
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -168
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -180
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -194
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -12,
+                    -1.1,
+                    -194
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            //---------- Right-----------//
+            {
+                "position": [
+                    12,
+                    -1.1,
+                    -180
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    7,
+                    7,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "pebbles"
+                    }
+                ]
+            },
+            ////////////////////////////
+            //----------ROAD----------//
+            ////////////////////////////
+            {
+                "position": [
+                    0,
+                    -1,
+                    -2
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    -32
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    -60
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    -90
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    -120
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    -150
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    0,
+                    -1,
+                    -180
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
 
-            //          ROAD          //
-            {
-                "position": [0, -1, -2],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "road"
-                    }
-                ]
             },
-            
+
+
+            ////////////////////////////
+            //----------FENCE----------//
+            ////////////////////////////
             {
-                "position": [0, -1, -32],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
+                "position": [
+                    -6,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    10,
+                    2,
+                    0
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "road"
-                    }
-                ]
-            },
-            {
-                "position": [0, -1, -60],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "road"
+                        "material": "fence1"
                     }
                 ]
             },
             {
-                "position": [0, -1, -90],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
+                "position": [
+                    6,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    10,
+                    2,
+                    0
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "road"
+                        "material": "fence1"
                     }
                 ]
             },
             {
-                "position": [0, -1, -120],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
+                "position": [
+                    -6,
+                    0,
+                    -20
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    10,
+                    2,
+                    0
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "road"
+                        "material": "fence1"
                     }
                 ]
             },
             {
-                "position": [0, -1, -150],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
+                "position": [
+                    6,
+                    0,
+                    -20
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    10,
+                    2,
+                    0
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "road"
+                        "material": "fence1"
                     }
                 ]
             },
             {
-                "position": [0, -1, -180],
-                "rotation": [-90, 0, 0],
-                "scale": [6, 15, 0],
+                "position": [
+                    -6,
+                    0,
+                    -40
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "plane",
-                        "material": "road"
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -40
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -6,
+                    0,
+                    -60
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -60
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -6,
+                    0,
+                    -80
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -80
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -6,
+                    0,
+                    -100
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -100
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
                     }
                 ]
             },
 
+
+            {
+                "position": [
+                    -6,
+                    0,
+                    -120
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -120
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+
+            {
+                "position": [
+                    -6,
+                    0,
+                    -140
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -140
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+
+            {
+                "position": [
+                    -6,
+                    0,
+                    -160
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -160
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+
+
+            {
+                "position": [
+                    -6,
+                    0,
+                    -180
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+            {
+                "position": [
+                    6,
+                    0,
+                    -180
+                ],
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ],
+                "scale": [
+                    15,
+                    2,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "fence1"
+                    }
+                ]
+            },
+
+
+
+            //////////////////////////////
+            {
+                "position": [
+                    0,
+                    -1,
+                    -180
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    6,
+                    15,
+                    0
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "plane",
+                        "material": "road"
+                    }
+                ]
+            },
             ///         rewards         ///
             {
-                "position": [-1.5, 0.5, -0.5],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
+                "position": [
+                    -1.5,
+                    0.5,
+                    -0.5
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "fish2",
                         "material": "fish2"
-                    }, 
+                    },
                     {
                         "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
                     }
                 ]
             },
             {
-                "position": [3, 0.5, -10],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
+                "position": [
+                    3,
+                    0.5,
+                    -10
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "fish2",
                         "material": "fish2"
-                    }, 
+                    },
                     {
                         "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
                     }
                 ]
             },
             {
-                "position": [0, 0.5, -20],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
+                "position": [
+                    0,
+                    0.5,
+                    -20
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "fish2",
                         "material": "fish2"
-                    }, 
+                    },
                     {
                         "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
                     }
                 ]
             },
             {
-                "position": [-2, 0.5, -30],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
+                "position": [
+                    -2,
+                    0.5,
+                    -30
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "fish2",
                         "material": "fish2"
-                    }, 
+                    },
                     {
                         "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
-                    }
-                ]
-            }
-            ,
-            {
-                "position": [1, 0.5, -40],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "fish2",
-                        "material": "fish2"
-                    }, 
-                    {
-                        "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
-                    }
-                ]
-            },
-            {
-                "position": [-3.5, 0.5, -50],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "fish2",
-                        "material": "fish2"
-                    }, 
-                    {
-                        "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
                     }
                 ]
             },
             {
-                "position": [3.5, 0.5, -60],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
+                "position": [
+                    1,
+                    0.5,
+                    -40
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "fish2",
                         "material": "fish2"
-                    }, 
+                    },
                     {
                         "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
                     }
                 ]
             },
             {
-                "position": [-2, 0.5, -70],
-                "rotation": [-90, 0, 0],
-                "scale": [0.06, 0.06, 0.06],
+                "position": [
+                    -3.5,
+                    0.5,
+                    -50
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "fish2",
                         "material": "fish2"
-                    }, 
+                    },
                     {
                         "type": "Movement",
-                        "angularVelocity": [0, 70, 0]
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
                     }
                 ]
             },
-
+            {
+                "position": [
+                    3.5,
+                    0.5,
+                    -60
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fish2",
+                        "material": "fish2"
+                    },
+                    {
+                        "type": "Movement",
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
+                    }
+                ]
+            },
+            {
+                "position": [
+                    -2,
+                    0.5,
+                    -70
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.06,
+                    0.06,
+                    0.06
+                ],
+                "components": [
+                    {
+                        "type": "Mesh Renderer",
+                        "mesh": "fish2",
+                        "material": "fish2"
+                    },
+                    {
+                        "type": "Movement",
+                        "angularVelocity": [
+                            0,
+                            70,
+                            0
+                        ]
+                    }
+                ]
+            },
             ///         penalties       ///
-
             {
-                "position": [2, -0.5, -2],
-                "rotation": [-90, 0, 0],
-                "scale": [0.1, 0.1, 0.1],
+                "position": [
+                    2,
+                    -0.5,
+                    -2
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
@@ -450,89 +2073,141 @@
                     }
                 ]
             },
-
             {
-                "position": [-3, -0.5, -12],
-                "rotation": [-90, 0, 0],
-                "scale": [0.1, 0.1, 0.1],
+                "position": [
+                    -3,
+                    -0.5,
+                    -12
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "dog",
                         "material": "dog"
-                    }, 
+                    },
                     {
                         "type": "Movement"
                     }
                 ]
             },
-
             {
-                "position": [-2, -0.5, -25],
-                "rotation": [-90, 0, 0],
-                "scale": [0.1, 0.1, 0.1],
+                "position": [
+                    -2,
+                    -0.5,
+                    -25
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "dog",
                         "material": "dog"
-                    }, 
+                    },
                     {
                         "type": "Movement"
                     }
                 ]
             },
-
             {
-                "position": [2, -0.5, -35],
-                "rotation": [-90, 0, 0],
-                "scale": [0.1, 0.1, 0.1],
+                "position": [
+                    2,
+                    -0.5,
+                    -35
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "dog",
                         "material": "dog"
-                    }, 
+                    },
                     {
                         "type": "Movement"
                     }
                 ]
             },
-
             {
-                "position": [3, -0.5, -45],
-                "rotation": [-90, 0, 0],
-                "scale": [0.1, 0.1, 0.1],
+                "position": [
+                    3,
+                    -0.5,
+                    -45
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "dog",
                         "material": "dog"
-                    }, 
+                    },
                     {
                         "type": "Movement"
                     }
                 ]
             },
-
             {
-                "position": [2, -0.5, -55],
-                "rotation": [-90, 0, 0],
-                "scale": [0.1, 0.1, 0.1],
+                "position": [
+                    2,
+                    -0.5,
+                    -55
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
                 "components": [
                     {
                         "type": "Mesh Renderer",
                         "mesh": "dog",
                         "material": "dog"
-                    }, 
+                    },
                     {
                         "type": "Movement"
                     }
                 ]
             }
-
-            
-            
         ]
     }
 }
