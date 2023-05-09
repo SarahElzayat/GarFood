@@ -94,4 +94,81 @@ namespace our
         sampler = AssetLoader<Sampler>::get(data.value("sampler", ""));
     }
 
+    // setup of the lightMaterial to create the needed textures based on the type
+    void LightMaterial::setup() const
+    {
+
+        // TexturedMaterial::setup();
+        Material::setup();
+        if (albedo != nullptr)
+        {
+            //select an active texture unit -> 0
+            glActiveTexture(GL_TEXTURE0);
+            //bind the texture to unit 0
+            albedo->bind();
+            //bind the sampler to unit 0
+            sampler->bind(0);
+            shader->set("material.albedo", 0);
+        }
+        if (specular != nullptr)
+        {
+            //select an active texture unit -> 1
+            glActiveTexture(GL_TEXTURE1);
+            //bind the texture to unit 1
+            specular->bind();
+            //bind the sampler to unit 1
+            sampler->bind(1);
+            shader->set("material.specular", 1);
+        }
+
+        if (emissive != nullptr)
+        {
+            //select an active texture unit -> 2
+            glActiveTexture(GL_TEXTURE2);
+            //bind the texture to unit 2
+            emissive->bind();
+            //bind the sampler to unit 2
+            sampler->bind(2);
+            shader->set("material.emissive", 2);
+        }
+
+        if (roughness != nullptr)
+        {
+            //select an active texture unit -> 3
+            glActiveTexture(GL_TEXTURE3);
+            //bind the texture to unit 3
+            //texture->bind();
+            roughness->bind();
+            //bind the sampler to unit 3
+            sampler->bind(3);
+            shader->set("material.roughness", 3);
+        }
+
+        if (ambient_occlusion != nullptr)
+        {
+            //select an active texture unit -> 4
+            glActiveTexture(GL_TEXTURE4);
+            //bind the texture to unit 4
+            ambient_occlusion->bind();
+            //bind the sampler to unit 4
+            sampler->bind(4);
+            shader->set("material.ambient_occlusion", 4);
+        }
+        
+    }
+
+    //Deserialize LightMaterial data from the json file
+    void LightMaterial::deserialize(const nlohmann::json &data)
+    {
+        Material::deserialize(data);
+        if (!data.is_object())
+            return;
+        sampler = AssetLoader<Sampler>::get(data.value("sampler", ""));
+        albedo = AssetLoader<Texture2D>::get(data.value("albedo", ""));
+        specular = AssetLoader<Texture2D>::get(data.value("specular", ""));
+        emissive = AssetLoader<Texture2D>::get(data.value("emissive", ""));
+        roughness = AssetLoader<Texture2D>::get(data.value("roughness", ""));
+        ambient_occlusion = AssetLoader<Texture2D>::get(data.value("ambient_occlusion", ""));
+    }
+
 }

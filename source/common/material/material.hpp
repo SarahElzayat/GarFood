@@ -52,6 +52,23 @@ namespace our {
         void setup() const override;
         void deserialize(const nlohmann::json& data) override;
     };
+    // light material will inherit from the  material and add all texture types for the light material.
+    class LightMaterial : public Material {
+    public:
+        //measure of ability to reflect light
+        Texture2D* albedo ;
+        //reflection of light from a surface in a specific direction.
+        Texture2D* specular ;
+        //to create more realistic shadows 
+        Texture2D* ambient_occlusion ;
+        Texture2D* roughness ;
+        //materials or objects that emit their own light. 
+        Texture2D* emissive ;
+        Sampler* sampler ;
+
+        void setup() const override;
+        void deserialize(const nlohmann::json& data) override;
+    };
 
     // This function returns a new material instance based on the given type
     inline Material* createMaterialFromType(const std::string& type){
@@ -59,6 +76,8 @@ namespace our {
             return new TintedMaterial();
         } else if(type == "textured"){
             return new TexturedMaterial();
+        } else if(type == "lighted"){    
+            return new LightMaterial();
         } else {
             return new Material();
         }
