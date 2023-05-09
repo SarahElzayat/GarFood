@@ -97,6 +97,7 @@
                     "texture": "grass",
                     "sampler": "default"
                 },
+
                 "monkey":{
                     "type": "textured",
                     "shader": "textured",
