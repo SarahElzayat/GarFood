@@ -63,15 +63,11 @@ namespace our {
             //a-Remove it from entities list
             //b-Delete it
             //c-Remove all eements from the list of marked entities
-            for (auto i = markedForRemoval.begin(); i != markedForRemoval.end(); ++i)
-            {
-                //Remove from list
-                entities.erase(i);
-                //Delete
-                delete (*i);
+            for(auto entity: markedForRemoval){
+                entities.erase(entity);
+                delete entity;
             }
             markedForRemoval.clear();
-
         }
 
         //This deletes all entities in the world

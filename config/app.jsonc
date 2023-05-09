@@ -140,6 +140,7 @@
                 ],
                 "children": [
                     {
+                        "name": "khazoo2",
                         "position": [1, -1, -1],
                         "rotation": [45, 45, 0],
                         "scale": [0.1, 0.1, 1.0],
@@ -148,6 +149,9 @@
                                 "type": "Mesh Renderer",
                                 "mesh": "cube",
                                 "material": "metal"
+                            },
+                            {
+                                "type": "Collision"
                             }
                         ]
                     }
@@ -241,6 +245,7 @@
                 ]
             },
             {
+                "name": "moon",
                 "position": [0, 10, 0],
                 "rotation": [45, 45, 0],
                 "scale": [5, 5, 5],
@@ -253,6 +258,9 @@
                     {
                         "type": "Movement",
                         "angularVelocity": [0, 90, 0]
+                    },
+                    {
+                        "type": "Collision"
                     }
                 ]
             }

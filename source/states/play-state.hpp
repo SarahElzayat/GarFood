@@ -6,6 +6,7 @@
 #include <systems/forward-renderer.hpp>
 #include <systems/free-camera-controller.hpp>
 #include <systems/movement.hpp>
+#include <systems/collision.hpp>
 #include <asset-loader.hpp>
 
 // This state shows how to use the ECS framework and deserialization.
@@ -15,6 +16,7 @@ class Playstate: public our::State {
     our::ForwardRenderer renderer;
     our::FreeCameraControllerSystem cameraController;
     our::MovementSystem movementSystem;
+    our::CollisionSystem collisionSystem;
 
     void onInitialize() override {
         // First of all, we get the scene configuration from the app config
@@ -38,7 +40,11 @@ class Playstate: public our::State {
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
+        collisionSystem.update(&world);
         // And finally we use the renderer system to draw the scene
+
+        world.deleteMarkedEntities();
+        
         renderer.render(&world);
 
         // Get a reference to the keyboard object
