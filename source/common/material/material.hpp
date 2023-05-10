@@ -37,7 +37,7 @@ namespace our {
         void setup() const override;
         void deserialize(const nlohmann::json& data) override;
     };
-
+ 
     // This material adds two uniforms (besides the tint from Tinted Material)
     // The uniforms are:
     // - "tex" which is a Sampler2D. "texture" and "sampler" will be bound to it.
@@ -59,9 +59,9 @@ namespace our {
         Texture2D* albedo ;
         //reflection of light from a surface in a specific direction.
         Texture2D* specular ;
+        Texture2D* roughness ;
         //to create more realistic shadows 
         Texture2D* ambient_occlusion ;
-        Texture2D* roughness ;
         //materials or objects that emit their own light. 
         Texture2D* emissive ;
         Sampler* sampler ;

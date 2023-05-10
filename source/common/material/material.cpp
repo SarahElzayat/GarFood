@@ -98,7 +98,6 @@ namespace our
     void LightMaterial::setup() const
     {
 
-        // TexturedMaterial::setup();
         Material::setup();
         if (albedo != nullptr)
         {
