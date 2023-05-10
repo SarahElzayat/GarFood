@@ -47,11 +47,17 @@ namespace our
                 glm::vec3 colliderPosition;
                 glm::vec3 colliderScale;
 
+                
+
                 colliderType = collider->getOwner()->name;
                 colliderPosition = collider->getOwner()->localTransform.position;
                 colliderScale = collider->getOwner()->localTransform.scale;
 
                 std::cout << "Collider Type: " << colliderType << '\n';
+
+                if(colliderType == "khazoo2"){
+                    colliderPosition = collider->getOwner()->getLocalToWorldMatrix() * glm::vec4(colliderPosition, 1.0f);
+                }
 
                 glm::vec3 maxColliderReach = colliderPosition + colliderScale;
                 glm::vec3 minColliderReach = colliderPosition - colliderScale;
@@ -87,6 +93,7 @@ namespace our
                         // std::cout<<"Min Obstacle Reach X: "<<minObstacleReach.x<<'\n';
                         // std::cout<<"Min Obstacle Reach y: "<<minObstacleReach.y<<'\n';
                         // std::cout<<"Min Obstacle Reach Z: "<<minObstacleReach.z<<'\n';
+                     
 
                         if (maxColliderReach.x >= minObstacleReach.x && minColliderReach.x <= maxObstacleReach.x &&
                             maxColliderReach.y >= minObstacleReach.y &&
@@ -99,7 +106,7 @@ namespace our
                             if (colliderType == "khazoo2" && obstacleType == "moon")
                             {
                                 world->markForRemoval(obstacle->getOwner());
-                                // return;
+                                return;
                             }
                         }
                     }

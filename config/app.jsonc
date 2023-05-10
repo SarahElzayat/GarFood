@@ -158,6 +158,7 @@
                 ]
             },
             {
+                "name" : "monkey",
                 "rotation": [-45, 0, 0],
                 "components": [
                     {
@@ -169,6 +170,9 @@
                         "type": "Movement",
                         "linearVelocity": [0, 0.1, 0],
                         "angularVelocity": [0, 45, 0]
+                    },
+                    {
+                        "type": "Collision"
                     }
                 ]
             },
