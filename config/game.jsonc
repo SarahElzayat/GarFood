@@ -10,7 +10,7 @@
   },
   "scene": {
     "renderer": {
-      "sky": "assets/textures/cartoon_sky.jpg"
+      "sky": "assets/textures/sky7.jpg"
       // "postprocess": "assets/shaders/postprocess/radial-blur.frag"
     },
     "assets": {
@@ -34,7 +34,8 @@
         "gravel": "assets/textures/gravel.jpg",
         "pebbles": "assets/textures/pebbels.jpg",
         "fence1": "assets/textures/fence2.jpg",
-        "sun": "assets/textures/sun.jpg"
+        "sun": "assets/textures/sun.jpg",
+        "lamp": "assets/textures/lamp.png"
       },
       "meshes": {
         "plane": "assets/models/plane.obj",
@@ -43,7 +44,8 @@
         "fish": "assets/models/fish.obj",
         "fish2": "assets/models/fish2.obj",
         "sun": "assets/models/sphere.obj",
-        "dog": "assets/models/dog.obj"
+        "dog": "assets/models/dog.obj",
+        "lamp": "assets/models/lamp.obj"
       },
       "samplers": {
         "default": {},
@@ -111,6 +113,21 @@
           },
           "tint": [1, 1, 1, 1],
           "texture": "bird",
+          "sampler": "default"
+        },
+        "lamp": {
+          "type": "textured",
+          "shader": "textured",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "lamp",
           "sampler": "default"
         },
         "dog": {
@@ -214,23 +231,23 @@
                 "material": "cat"
               }
             ]
-          },
-          {
-            "position": [0, 2, -4],
-            // "rotation": [45, 45, 0],
-            "scale": [1, 1, 1],
-            "components": [
-              {
-                "type": "Mesh Renderer",
-                "mesh": "sun",
-                "material": "sun"
-              },
-              {
-                "type": "Movement",
-                "angularVelocity": [0, 90, 0]
-              }
-            ]
           }
+          // {
+          //   "position": [0, 2, -4],
+          //   // "rotation": [45, 45, 0],
+          //   "scale": [1, 1, 1],
+          //   "components": [
+          //     {
+          //       "type": "Mesh Renderer",
+          //       "mesh": "sun",
+          //       "material": "sun"
+          //     },
+          //     {
+          //       "type": "Movement",
+          //       "angularVelocity": [0, 90, 0]
+          //     }
+          //   ]
+          // }
         ]
       },
       //--------- Side road-----------//
@@ -755,7 +772,7 @@
       //----------FENCE----------//
       ////////////////////////////
       {
-        "position": [-6, 0, 0],
+        "position": [-12, 0, 0],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
         "components": [
@@ -767,7 +784,7 @@
         ]
       },
       {
-        "position": [6, 0, 0],
+        "position": [12, 0, 0],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
         "components": [
@@ -779,7 +796,7 @@
         ]
       },
       {
-        "position": [-6, 0, -20],
+        "position": [-12, 0, -20],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
         "components": [
@@ -791,7 +808,7 @@
         ]
       },
       {
-        "position": [6, 0, -20],
+        "position": [12, 0, -20],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
         "components": [
@@ -803,7 +820,7 @@
         ]
       },
       {
-        "position": [-6, 0, -40],
+        "position": [-12, 0, -40],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -815,7 +832,7 @@
         ]
       },
       {
-        "position": [6, 0, -40],
+        "position": [12, 0, -40],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -827,7 +844,7 @@
         ]
       },
       {
-        "position": [-6, 0, -60],
+        "position": [-12, 0, -60],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -839,7 +856,7 @@
         ]
       },
       {
-        "position": [6, 0, -60],
+        "position": [12, 0, -60],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -851,7 +868,7 @@
         ]
       },
       {
-        "position": [-6, 0, -80],
+        "position": [-12, 0, -80],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -863,7 +880,7 @@
         ]
       },
       {
-        "position": [6, 0, -80],
+        "position": [12, 0, -80],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -875,7 +892,7 @@
         ]
       },
       {
-        "position": [-6, 0, -100],
+        "position": [-12, 0, -100],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -887,7 +904,7 @@
         ]
       },
       {
-        "position": [6, 0, -100],
+        "position": [12, 0, -100],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -899,7 +916,7 @@
         ]
       },
       {
-        "position": [-6, 0, -120],
+        "position": [-12, 0, -120],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -911,7 +928,7 @@
         ]
       },
       {
-        "position": [6, 0, -120],
+        "position": [12, 0, -120],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -923,7 +940,7 @@
         ]
       },
       {
-        "position": [-6, 0, -140],
+        "position": [-12, 0, -140],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -935,7 +952,7 @@
         ]
       },
       {
-        "position": [6, 0, -140],
+        "position": [12, 0, -140],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -947,7 +964,7 @@
         ]
       },
       {
-        "position": [-6, 0, -160],
+        "position": [-12, 0, -160],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -959,7 +976,7 @@
         ]
       },
       {
-        "position": [6, 0, -160],
+        "position": [12, 0, -160],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -971,7 +988,7 @@
         ]
       },
       {
-        "position": [-6, 0, -180],
+        "position": [-12, 0, -180],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -983,7 +1000,7 @@
         ]
       },
       {
-        "position": [6, 0, -180],
+        "position": [12, 0, -180],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
         "components": [
@@ -1223,26 +1240,139 @@
             "type": "Movement"
           }
         ]
+      },
+
+      ///////////////////////////////
+      //---------right lamps-------//
+      //////////////////////////////
+      {
+        "position": [5.25, -1.25, -3],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [5.25, -1.25, -40],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [5.25, -1.25, -80],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [5.25, -1.25, -120],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [5.25, -1.25, -160],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      //////////////////////////////
+      //---------left lamps/////////
+      //////////////////////////////
+
+      {
+        "position": [-5.25, -1.25, -20],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [-5.25, -1.25, -60],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [-5.25, -1.25, -100],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [-5.25, -1.25, -140],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
+      },
+      {
+        "position": [-5.25, -1.25, -180],
+        "rotation": [0, 0, 0],
+        "scale": [1, 1, 1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "lamp",
+            "material": "lamp"
+          }
+        ]
       }
 
-      //------------------------//
-      //-------- sun ---------//
-      // {
-      //     "position": [0, 2, -4],
-      //     // "rotation": [45, 45, 0],
-      //     "scale": [1, 1, 1],
-      //     "components": [
-      //         {
-      //             "type": "Mesh Renderer",
-      //             "mesh": "sun",
-      //             "material": "sun"
-      //         },
-      //         {
-      //             "type": "Movement",
-      //             "angularVelocity": [0, 90, 0]
-      //         }
-      //     ]
-      // }
+      ///////////////////////////////
+      //--------finish line--------//
+      ///////////////////////////////
     ]
   }
 }
