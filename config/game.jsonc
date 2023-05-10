@@ -221,6 +221,7 @@
         ],
         "children": [
           {
+            "name": "meshmesh",
             "position": [0, -1, -0.9],
             "rotation": [-90, 0, 180],
             "scale": [0.05, 0.05, 0.05],
@@ -229,25 +230,12 @@
                 "type": "Mesh Renderer",
                 "mesh": "cat",
                 "material": "cat"
+              },
+              {
+                "type": "Collision"
               }
             ]
           }
-          // {
-          //   "position": [0, 2, -4],
-          //   // "rotation": [45, 45, 0],
-          //   "scale": [1, 1, 1],
-          //   "components": [
-          //     {
-          //       "type": "Mesh Renderer",
-          //       "mesh": "sun",
-          //       "material": "sun"
-          //     },
-          //     {
-          //       "type": "Movement",
-          //       "angularVelocity": [0, 90, 0]
-          //     }
-          //   ]
-          // }
         ]
       },
       //--------- Side road-----------//
@@ -1026,6 +1014,7 @@
       },
       ///         rewards         ///
       {
+        "name": "fish",
         "position": [-1.5, 0.5, -0.5],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1038,10 +1027,15 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fish",
+
         "position": [3, 0.5, -10],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1054,10 +1048,15 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fish",
+
         "position": [0, 0.5, -20],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1070,6 +1069,9 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
@@ -1155,6 +1157,8 @@
       },
       ///         penalties       ///
       {
+        "name": "fekry",
+
         "position": [2, -0.5, -2],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1163,6 +1167,9 @@
             "type": "Mesh Renderer",
             "mesh": "dog",
             "material": "dog"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
