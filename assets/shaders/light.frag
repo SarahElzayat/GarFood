@@ -34,9 +34,9 @@ struct Light {
     //for spot light and point light
     vec3 position;
     //for spot light and directional light
-    vec3 direction; 
-    //diffuse and specular
-    vec3 color; 
+    vec3 direction;
+    vec3 diffuse;
+    vec3 specular; 
     //the reduction in light's intensity as it travels
     vec3 attenuation; // x*d^2 + y*d + z
     //inner and outer angles
@@ -92,15 +92,16 @@ void main() {
     float roughness = texture(material.roughness, fs_in.tex_coord).r;
     vec3 ambient = diffuse * texture(material.ambient_occlusion, fs_in.tex_coord).r;
     vec3 emissive = texture(material.emissive, fs_in.tex_coord).rgb;
-
-    //compute ambient light 
-    vec3 ambient_light = compute_sky_light(normal);
     //compute the shininess of the material
     //This function clamps the value of "roughness" between 0.001 and 0.999. If the value of "roughness" is less than 0.001, it will be set to 0.001, and if it is greater than 0.999, it will be set to 0.999.
     //to avoid 0 and infinity
     float shininess = 2.0 / pow(clamp(roughness, 0.001, 0.999), 4.0) - 2.0;
-    vec3 world_to_light_dir;
+    
+    //compute ambient light 
+    vec3 ambient_light = compute_sky_light(normal);
     vec3 color = emissive + ambient_light * ambient
+
+    vec3 world_to_light_dir;
     //for each light source:
         //compute diffuse and specular amount and add them to the lighting effect of the vertex
     for(int light_idx = 0; light_idx < min(MAX_LIGHTS, light_count); light_idx++){
@@ -109,9 +110,10 @@ void main() {
         if(light.type == DIRECTIONAL){ //no atttenuation for directional light
             world_to_light_dir = -light.direction; 
         } else {
-            world_to_light_dir = light.position - fs_in.world;
-            float d = length(world_to_light_dir);
-            world_to_light_dir /= d;
+            world_to_light_dir = normalize(light.position - fs_in.world);
+
+            float d = distance(light.position, fs_in.world);
+            //world_to_light_dir /= d;
             //for point light ==> attenuation depend on the distance only
             // x*d^2 + y*d + z
             attenuation = 1.0 / dot(light.attenuation, vec3(d*d, d, 1.0));
@@ -126,10 +128,11 @@ void main() {
             }
         }
         
-        vec3 computed_diffuse = light.color * diffuse * lambert(normal, world_to_light_dir);
+        vec3 computed_diffuse = light.diffuse * diffuse * lambert(normal, world_to_light_dir);
 
-        vec3 reflected = reflect(-world_to_light_dir, normal);
-        vec3 computed_specular = light.color * specular * phong(reflected, view, shininess);
+        vec3 reflected = normalize(reflect(-world_to_light_dir, normal));
+        
+        vec3 computed_specular = light.specular * specular * phong(reflected, view, shininess);
 
         //color = emissive (if the material is lighting by itself) + ambient effect + diffuse effect+ specular effect
         color += (computed_diffuse + computed_specular) * attenuation;
