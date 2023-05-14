@@ -71,7 +71,8 @@ namespace our
         // sets the alpha threshold
         // set the uniform "tint" in (shader) to the variable alphaTreshold
         this->shader->set("alphaThreshold", alphaThreshold); 
-                         
+        
+        glActiveTexture(GL_TEXTURE0);
         // binds the texture to unit 0
         this->texture->bind();      
         

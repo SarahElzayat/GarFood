@@ -43,8 +43,8 @@ namespace our
         direction =  glm::normalize(glm::vec3(data.value("direction", glm::vec3(0, -1, 0))));
 
         //Calculate angles of cone in case of spot light type
-        coneAngles.x = glm::radians((float)data.value("coneAngles.inner",90));
-        coneAngles.y = glm::radians((float)data.value("coneAngles.outer",120));
+        coneAngles.x = glm::radians((float)data.value("cone_angles.inner",90));
+        coneAngles.y = glm::radians((float)data.value("cone_angles.outer",120));
     }
 
 }
