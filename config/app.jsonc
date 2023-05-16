@@ -127,8 +127,7 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "texture": "moon",
-                    "sampler": "default",
-                    "specular": "white"
+                    "sampler": "default"
                 }
             }
         },
