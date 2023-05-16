@@ -190,6 +190,11 @@ namespace our
                     opaqueCommands.push_back(command);
                 }
             }
+            // Add lights to a list
+            if (auto light = entity->getComponent<LightComponent>(); light)
+            {
+                lightings.push_back(light);
+            }
         }
 
         // If there is no camera, we return (we cannot render without a camera)
@@ -256,7 +261,55 @@ namespace our
             /// each command has a local-to-world transformation matrix, multiplying that by the VP matix allows determining the final transformation matrix
             /// the last step is actually drawing the respective mesh of the commands
             command.material->setup();
-            command.material->shader->set("transform", VP * command.localToWorld);
+
+
+             if (auto lightingMaterial = dynamic_cast<LightMaterial *>(command.material); lightingMaterial)
+            {
+                lightingMaterial->shader->set("VP", VP);
+                //lightingMaterial->shader->set("eye", eyeTrans);
+                lightingMaterial->shader->set("M", command.localToWorld);
+                lightingMaterial->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
+
+                //Send the light and its data to the fragement shaders
+                lightingMaterial->shader->set("light_count", (int)lightings.size());
+                lightingMaterial->shader->set("sky.top", glm::vec3(0.7, 0.3, 0.8));
+                lightingMaterial->shader->set("sky.middle", glm::vec3(0.7, 0.3, 0.8));
+                lightingMaterial->shader->set("sky.bottom", glm::vec3(0.7, 0.3, 0.8));
+
+                //loop on the lightings list and set each one of them sending its data to the fragement shader
+                for (unsigned i = 0; i < lightings.size(); i++)
+                {
+                    glm::vec3 lightPosition = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
+                    glm::vec3 lightDirection = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lightings[i]->direction, 0);
+
+
+                    std::string lightName = "lights[" + std::to_string(i) + "]";
+                    lightingMaterial->shader->set(lightName + ".type", (GLint)lightings[i]->lightType);
+                    lightingMaterial->shader->set(lightName + ".diffuse", lightings[i]->diffuse);
+                    lightingMaterial->shader->set(lightName + ".specular", lightings[i]->specular);
+                    lightingMaterial->shader->set(lightName + ".attenuation", lightings[i]->attenuation);
+
+                    if (lightings[i]->lightType == LIGHT_TYPE::DIRECTIONAL)
+                    {
+                        lightingMaterial->shader->set(lightName + ".direction", lightDirection);
+                    }
+                    else if (lightings[i]->lightType == LIGHT_TYPE::POINT)
+                    {
+                        lightingMaterial->shader->set(lightName + ".position", lightPosition);
+                    }
+                    else if(lightings[i]->lightType == LIGHT_TYPE::SPOT)
+                    {
+                        lightingMaterial->shader->set(lightName + ".position", lightPosition);
+                        lightingMaterial->shader->set(lightName + ".direction", lightDirection);
+                        lightingMaterial->shader->set(lightName + ".cone_angles", lightings[i]->coneAngles);
+                    }
+                    
+                }
+            }
+            else
+            {
+                command.material->shader->set("transform", VP * command.localToWorld);
+            }
             command.mesh->draw();
         }
 
@@ -302,7 +355,55 @@ namespace our
             /// the last step is actually drawing the respective mesh of the commands
 
             command.material->setup();
-            command.material->shader->set("transform", VP * command.localToWorld);
+
+            if (auto lightingMaterial = dynamic_cast<LightMaterial *>(command.material); lightingMaterial)
+            {
+                lightingMaterial->shader->set("VP", VP);
+                //lightingMaterial->shader->set("eye", eyeTrans);
+                lightingMaterial->shader->set("M", command.localToWorld);
+                lightingMaterial->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
+
+                // send the lights count and other data (pos, direc , ..) to the fragement shader
+                lightingMaterial->shader->set("light_count", (int)lightings.size());
+
+                lightingMaterial->shader->set("sky.top", glm::vec3(0.7, 0.3, 0.8));
+                lightingMaterial->shader->set("sky.middle", glm::vec3(0.7, 0.3, 0.8));
+                lightingMaterial->shader->set("sky.bottom", glm::vec3(0.7, 0.3, 0.8));
+
+                for (unsigned i = 0; i < lightings.size(); i++)
+                {
+                    glm::vec3 lightPosition = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
+                    glm::vec3 lightDirection = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lightings[i]->direction, 0);
+
+                    std::string lightName = "lights[" + std::to_string(i) + "]";
+
+                    lightingMaterial->shader->set(lightName + ".type", (GLint)lightings[i]->lightType);
+                    lightingMaterial->shader->set(lightName + ".diffuse", lightings[i]->diffuse);
+                    lightingMaterial->shader->set(lightName + ".specular", lightings[i]->specular);
+                    lightingMaterial->shader->set(lightName + ".attenuation", lightings[i]->attenuation);
+
+
+                     if (lightings[i]->lightType == LIGHT_TYPE::DIRECTIONAL)
+                    {
+                        lightingMaterial->shader->set(lightName + ".direction", lightDirection);
+                    }
+                    else if (lightings[i]->lightType == LIGHT_TYPE::POINT)
+                    {
+                        lightingMaterial->shader->set(lightName + ".position", lightPosition);
+                    }
+                    else if(lightings[i]->lightType == LIGHT_TYPE::SPOT)
+                    {
+                        lightingMaterial->shader->set(lightName + ".position", lightPosition);
+                        lightingMaterial->shader->set(lightName + ".direction", lightDirection);
+                        lightingMaterial->shader->set(lightName + ".cone_angles", lightings[i]->coneAngles);
+                    }
+                }
+            }
+            else
+            {
+                command.material->shader->set("transform", VP * command.localToWorld);
+            }
+            
             command.mesh->draw();
         }
 

@@ -15,17 +15,17 @@ namespace our
             return;
         }
         // read the type of the light and set the default to be directional.
-        std::string type = data.value("lightType", "Directional");  
+        std::string type = data.value("lightType", "directional");  
 
-        if (type == "Directional")
+        if (type == "directional")
         {
             lightType = LIGHT_TYPE::DIRECTIONAL;
         }
-        else if (type == "Point")
+        else if (type == "point")
         {
             lightType = LIGHT_TYPE::POINT;
         }
-        else if (type == "Spot")
+        else if (type == "spot")
         {
             lightType = LIGHT_TYPE::SPOT;
         }

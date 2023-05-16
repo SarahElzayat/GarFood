@@ -203,6 +203,9 @@ if( ($tests.Count -eq 0) -or ($tests -contains "postprocess-test")){
     Invoke-Tests $configs
 }
 
+###################################################
+###################################################
+
 if( ($tests.Count -eq 0) -or ($tests -contains "light-test")){
     $configs = @(
         "config/light-test/test-0.jsonc"
