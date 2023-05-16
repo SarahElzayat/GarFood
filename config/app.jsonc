@@ -34,7 +34,12 @@
                 "grass": "assets/textures/grass_ground_d.jpg",
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
-                "monkey": "assets/textures/monkey.png"
+                "monkey": "assets/textures/monkey.png",
+                "albedo": "assets/textures/albedo.jpg",
+                "specular": "assets/textures/specular.jpg",
+                "ambient_occlusion": "assets/textures/ambient_occlusion.jpg",
+                "emissive":"assets/textures/emissive.jpg",
+                "roughness":"assets/textures/roughness.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -126,8 +131,12 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    "texture": "moon",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo" :"albedo",
+                    "roughness":"roughness",
+                    "specular":"specular",
+                    "emissive":"moon",
+                    "ambient_occlusion":"ambient_occlusion"
                 }
             }
         },
