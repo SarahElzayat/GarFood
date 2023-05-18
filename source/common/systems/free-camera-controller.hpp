@@ -19,14 +19,15 @@ namespace our
     // For more information, see "common/components/free-camera-controller.hpp"
     class FreeCameraControllerSystem
     {
-        Application *app;   // The application in which the state runs
-        bool start = false; // Whether the user started
+        Application *app; // The application in which the state runs
 
+        bool start = false; // Whether the user started
     public:
         // When a state enters, it should call this function and give it the pointer to the application
         void enter(Application *app)
         {
             this->app = app;
+            start = false;
         }
 
         // This should be called every frame to update all entities containing a FreeCameraControllerComponent
@@ -79,9 +80,9 @@ namespace our
                 position += front * (deltaTime * current_sensitivity.z); // multiply the position sensitivity by the speed up/ slow down factor
 
                 // A & D moves the player left or right
-                if (app->getKeyboard().isPressed(GLFW_KEY_D) || app->getKeyboard().isPressed(GLFW_KEY_RIGHT))
+                if ((app->getKeyboard().isPressed(GLFW_KEY_D) || app->getKeyboard().isPressed(GLFW_KEY_RIGHT) )&& position.x < 11)
                     position += right * (deltaTime * current_sensitivity.x);
-                if (app->getKeyboard().isPressed(GLFW_KEY_A) || app->getKeyboard().isPressed(GLFW_KEY_LEFT))
+                if ((app->getKeyboard().isPressed(GLFW_KEY_A) || app->getKeyboard().isPressed(GLFW_KEY_LEFT) )&& position.x > -11)
                     position -= right * (deltaTime * current_sensitivity.x);
             }
         }

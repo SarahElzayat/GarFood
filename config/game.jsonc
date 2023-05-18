@@ -35,7 +35,8 @@
         "pebbles": "assets/textures/pebbels.jpg",
         "fence1": "assets/textures/fence2.jpg",
         "sun": "assets/textures/sun.jpg",
-        "lamp": "assets/textures/lamp.png"
+        "lamp": "assets/textures/lamp.png",
+        "finish_line": "assets/textures/start.png"
       },
       "meshes": {
         "plane": "assets/models/plane.obj",
@@ -113,6 +114,21 @@
           },
           "tint": [1, 1, 1, 1],
           "texture": "bird",
+          "sampler": "default"
+        },
+        "finish_line": {
+          "type": "textured",
+          "shader": "textured",
+          "pipelineState": {
+            "faceCulling": {
+              "enabled": false
+            },
+            "depthTesting": {
+              "enabled": true
+            }
+          },
+          "tint": [1, 1, 1, 1],
+          "texture": "finish_line",
           "sampler": "default"
         },
         "lamp": {
@@ -763,11 +779,15 @@
         "position": [-12, 0, 0],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
+        "name": "fence",
         "components": [
           {
             "type": "Mesh Renderer",
             "mesh": "plane",
             "material": "fence1"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
@@ -780,10 +800,15 @@
             "type": "Mesh Renderer",
             "mesh": "plane",
             "material": "fence1"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fence",
+
         "position": [-12, 0, -20],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
@@ -792,10 +817,15 @@
             "type": "Mesh Renderer",
             "mesh": "plane",
             "material": "fence1"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fence",
+
         "position": [12, 0, -20],
         "rotation": [0, -90, 0],
         "scale": [10, 2, 0],
@@ -804,10 +834,15 @@
             "type": "Mesh Renderer",
             "mesh": "plane",
             "material": "fence1"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fence",
+
         "position": [-12, 0, -40],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
@@ -820,6 +855,8 @@
         ]
       },
       {
+        "name": "fence",
+
         "position": [12, 0, -40],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
@@ -832,6 +869,8 @@
         ]
       },
       {
+        "name": "fence",
+
         "position": [-12, 0, -60],
         "rotation": [0, -90, 0],
         "scale": [15, 2, 0],
@@ -1076,6 +1115,8 @@
         ]
       },
       {
+                "name": "fish",
+
         "position": [-2, 0.5, -30],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1088,10 +1129,14 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
-      {
+      {        "name": "fish",
+
         "position": [1, 0.5, -40],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1104,10 +1149,14 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
-      {
+      {        "name": "fish",
+
         "position": [-3.5, 0.5, -50],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1120,10 +1169,14 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
-      {
+      {        "name": "fish",
+
         "position": [3.5, 0.5, -60],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1136,10 +1189,14 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
-      {
+      {        "name": "fish",
+
         "position": [-2, 0.5, -70],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
@@ -1152,6 +1209,9 @@
           {
             "type": "Movement",
             "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
@@ -1174,6 +1234,7 @@
         ]
       },
       {
+        "name": "fekry",
         "position": [-3, -0.5, -12],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1184,11 +1245,13 @@
             "material": "dog"
           },
           {
-            "type": "Movement"
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fekry",
+
         "position": [-2, -0.5, -25],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1199,11 +1262,13 @@
             "material": "dog"
           },
           {
-            "type": "Movement"
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fekry",
+
         "position": [2, -0.5, -35],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1214,11 +1279,13 @@
             "material": "dog"
           },
           {
-            "type": "Movement"
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fekry",
+
         "position": [3, -0.5, -45],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1229,11 +1296,13 @@
             "material": "dog"
           },
           {
-            "type": "Movement"
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "fekry",
+
         "position": [2, -0.5, -55],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1244,7 +1313,7 @@
             "material": "dog"
           },
           {
-            "type": "Movement"
+            "type": "Collision"
           }
         ]
       },
@@ -1375,11 +1444,27 @@
             "material": "lamp"
           }
         ]
-      }
+      },
 
       ///////////////////////////////
       //--------finish line--------//
       ///////////////////////////////
+      {
+        "position": [0, -1, -198],
+        "rotation": [90, 0, 0],
+        "scale": [6, 3, 1],
+        "name": "finish_line",
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "plane",
+            "material": "finish_line"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      }
     ]
   }
 }

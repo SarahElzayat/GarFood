@@ -116,6 +116,8 @@ set(STATES_SOURCES
         source/states/entity-test-state.hpp
         source/states/renderer-test-state.hpp
         source/states/trial-state.hpp
+        source/states/end-state.hpp
+        source/states/lost-state.hpp
 )
 
 

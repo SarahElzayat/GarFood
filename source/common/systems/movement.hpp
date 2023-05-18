@@ -28,18 +28,15 @@ namespace our
                 MovementComponent* movement = entity->getComponent<MovementComponent>();
                 // If the movement component exists
                 if(movement){
-                    // Change the position and rotation based on the linear & angular velocity and delta time.
-                    // std::cout<<"Position before updating: "<<entity->localTransform.position.x<<'\n';
-                    // std::cout<<"Position before updating: "<<entity->localTransform.position.y<<'\n';
-                    // std::cout<<"Position before updating: "<<entity->localTransform.position.z<<'\n';
                     entity->localTransform.position += deltaTime * movement->linearVelocity;
                     entity->localTransform.rotation += deltaTime * movement->angularVelocity;
-                    // std::cout<<"Position after updating: "<<entity->localTransform.position.x<<'\n';
-                    // std::cout<<"Position after updating: "<<entity->localTransform.position.y<<'\n';
-                    // std::cout<<"Position after updating: "<<entity->localTransform.position.z<<'\n';
-                }
+                 }
             }
         }
+
+        void destroy(){
+
+        };
 
     };
 
