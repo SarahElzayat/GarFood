@@ -41,7 +41,7 @@ namespace our
         }
 
         // This should be called every frame to update all entities containing a CollisionComponent.
-        void update(World *world)
+        bool update(World *world)
         {
 
             // printf("UPDATE COLLISION COMPONENT");
@@ -95,17 +95,18 @@ namespace our
                         if (glm::length(colliderPosition.z - obstaclePosition.z) < 5 && colliderType == "meshmesh" && obstacleType == "finish_line")
                         {
                             app->changeState("end");
-                            // return;
+                            return false;
                         }
 
                         else if (glm::length(colliderPosition - obstaclePosition) < 1 && colliderType == "meshmesh" && obstacleType == "fish")
                         {
-
-
-                            //     // collider->getOwner()->localTransform.scale += glm::vec3(0.02, 0, 0);
                             world->markForRemoval(obstacle->getOwner());
                             score += 20;
-
+                            return false;
+                        }
+                        else if ((glm::length(colliderPosition.x - obstaclePosition.x) < 0.05f || glm::length(colliderPosition.z - obstaclePosition.z) < 0.05f) && colliderType == "meshmesh" && obstacleType == "lamp")
+                        {
+                            return true;
                         }
                         else if (glm::length(colliderPosition.x - obstaclePosition.x) < 1   && glm::length(colliderPosition.z - obstaclePosition.z) < 1.2 && colliderType == "meshmesh" && obstacleType == "fekry")
                         {
@@ -115,12 +116,13 @@ namespace our
                             lives--;
                             if (lives == 0){
                                  app->changeState("lost");
-                            // return;
                             }
+                            return true;
                         }
                     }
                 }
             }
+            return false;
         };
     };
 }

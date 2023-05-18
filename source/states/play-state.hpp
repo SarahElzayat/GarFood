@@ -22,6 +22,9 @@ class Playstate : public our::State
     our::CollisionSystem collisionSystem;
 
     int score = 5;
+    
+    // variable to wait for a certain time if the object collided before disabling the postprocess effect
+    int waitFor = 0;
 
     void onInitialize() override
     {
@@ -50,10 +53,24 @@ class Playstate : public our::State
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
-        collisionSystem.update(&world);
-        // And finally we use the renderer system to draw the scene
+        bool collided = collisionSystem.update(&world);
 
+        // And finally we use the renderer system to draw the scene
         world.deleteMarkedEntities();
+
+        if(collided == true){
+            renderer.postprocessEffect = true;
+            collided = false;
+            waitFor = 0;
+        }
+
+        if(waitFor == 50 && renderer.postprocessEffect == true){
+            renderer.postprocessEffect = false;
+            waitFor = 0;
+        }
+        else{
+            waitFor++; 
+        }
 
         renderer.render(&world);
 

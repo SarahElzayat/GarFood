@@ -10,8 +10,8 @@
   },
   "scene": {
     "renderer": {
-      "sky": "assets/textures/sky7.jpg"
-      // "postprocess": "assets/shaders/postprocess/radial-blur.frag"
+      "sky": "assets/textures/sky7.jpg",
+      "postprocess": "assets/shaders/postprocess/distortion.frag"
     },
     "assets": {
       "shaders": {
@@ -1115,7 +1115,7 @@
         ]
       },
       {
-                "name": "fish",
+        "name": "fish",
 
         "position": [-2, 0.5, -30],
         "rotation": [-90, 0, 0],
@@ -1135,7 +1135,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {        
+        "name": "fish",
 
         "position": [1, 0.5, -40],
         "rotation": [-90, 0, 0],
@@ -1155,7 +1156,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {       
+        "name": "fish",
 
         "position": [-3.5, 0.5, -50],
         "rotation": [-90, 0, 0],
@@ -1175,7 +1177,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {        
+        "name": "fish",
 
         "position": [3.5, 0.5, -60],
         "rotation": [-90, 0, 0],
@@ -1195,7 +1198,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {        
+        "name": "fish",
 
         "position": [-2, 0.5, -70],
         "rotation": [-90, 0, 0],
@@ -1322,6 +1326,7 @@
       //---------right lamps-------//
       //////////////////////////////
       {
+        "name": "lamp",
         "position": [5.25, -1.25, -3],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1330,10 +1335,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [5.25, -1.25, -40],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1342,10 +1351,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [5.25, -1.25, -80],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1354,10 +1367,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [5.25, -1.25, -120],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1366,10 +1383,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [5.25, -1.25, -160],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1378,6 +1399,9 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
@@ -1386,6 +1410,7 @@
       //////////////////////////////
 
       {
+        "name": "lamp",
         "position": [-5.25, -1.25, -20],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1394,10 +1419,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [-5.25, -1.25, -60],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1406,10 +1435,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [-5.25, -1.25, -100],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1418,10 +1451,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [-5.25, -1.25, -140],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1430,10 +1467,14 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },
       {
+        "name": "lamp",
         "position": [-5.25, -1.25, -180],
         "rotation": [0, 0, 0],
         "scale": [1, 1, 1],
@@ -1442,6 +1483,9 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Collision"
           }
         ]
       },

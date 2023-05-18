@@ -231,7 +231,7 @@ namespace our
         glDepthMask(GL_TRUE);
 
         // If there is a postprocess material, bind the framebuffer
-        if (postprocessMaterial)
+        if (postprocessEffect && postprocessMaterial)
         {
             // TODO: (Req 11) bind the framebuffer
             // if the postprocess material is not null
@@ -305,7 +305,7 @@ namespace our
         }
 
         // If there is a postprocess material, apply postprocessing
-        if (postprocessMaterial)
+        if (postprocessEffect && postprocessMaterial)
         {
             // TODO: (Req 11) Return to the default framebuffer
             // unbind the postprocess framebuffer to return to the default framebuffer

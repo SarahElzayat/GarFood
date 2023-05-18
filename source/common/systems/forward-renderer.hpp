@@ -41,6 +41,8 @@ namespace our
         Texture2D *colorTarget, *depthTarget;
         TexturedMaterial* postprocessMaterial;
     public:
+        // This boolean indicates whether or not the postprocess effect takes place
+        bool postprocessEffect = false;
         // Initialize the renderer including the sky and the Postprocessing objects.
         // windowSize is the width & height of the window (in pixels).
         void initialize(glm::ivec2 windowSize, const nlohmann::json& config);
@@ -48,8 +50,6 @@ namespace our
         void destroy();
         // This function should be called every frame to draw the given world
         void render(World* world);
-
-
     };
 
 }
