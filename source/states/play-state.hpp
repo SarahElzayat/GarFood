@@ -60,12 +60,14 @@ class Playstate : public our::State
 
         if(collided == true){
             renderer.postprocessEffect = true;
+            // renderer.applyPostprocessing(true);
             collided = false;
             waitFor = 0;
         }
 
         if(waitFor == 50 && renderer.postprocessEffect == true){
             renderer.postprocessEffect = false;
+            // renderer.applyPostprocessing(false);
             waitFor = 0;
         }
         else{

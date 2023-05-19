@@ -1,5 +1,5 @@
 {
-  "start-scene": "play",
+  "start-scene": "menu",
   "window": {
     "title": "Ya rab",
     "size": {
@@ -11,7 +11,8 @@
   "scene": {
     "renderer": {
       "sky": "assets/textures/sky7.jpg",
-      "postprocess": "assets/shaders/postprocess/distortion.frag"
+      "postprocess": "assets/shaders/postprocess/grayscale.frag",
+      "addedTex": "assets/textures/water.png"
     },
     "assets": {
       "shaders": {
@@ -37,6 +38,7 @@
         "sun": "assets/textures/sun.jpg",
         "lamp": "assets/textures/lamp.png",
         "finish_line": "assets/textures/start.png"
+        // "water": "assets/textures/water.png"
       },
       "meshes": {
         "plane": "assets/models/plane.obj",

@@ -121,6 +121,9 @@ namespace our
             postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
             postprocessShader->attach(config.value<std::string>("postprocess", ""), GL_FRAGMENT_SHADER);
             postprocessShader->link();
+            if(config.contains("addedTex")){
+                addedTexture = texture_utils::loadImage(config.value<std::string>("addedTex", ""));
+            }
 
             // Create a post processing material
             postprocessMaterial = new TexturedMaterial();
@@ -322,6 +325,14 @@ namespace our
             // now we draw the triangle using the vertices in the post process vertex array
             // first bind the post process vertex array to draw the traingle
             glBindVertexArray(postProcessVertexArray);
+
+            // send other effect
+            if(addedTexture){
+                glActiveTexture(GL_TEXTURE1);
+                addedTexture->bind();
+                postprocessMaterial->sampler->bind(1);
+                postprocessMaterial->shader->set("distortion_sampler", 1);
+            }
 
             // use glDrawArrays to draw the triangle
             // first by specifying the mode of what we're drawing which is GL_TRIANGLES

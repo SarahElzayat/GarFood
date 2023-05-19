@@ -10,7 +10,9 @@
     },
     "scene": {
         "renderer": {
-            "sky": "assets/textures/sky6.jpg"
+            "sky": "assets/textures/sky6.jpg",
+            "postprocess": "assets/shaders/postprocess/distortion.frag",
+            "addedTex": "assets/textures/water.png"
         },
         "assets": {
             "shaders": {

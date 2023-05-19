@@ -41,6 +41,8 @@ namespace our
         Texture2D *colorTarget, *depthTarget;
         TexturedMaterial* postprocessMaterial;
     public:
+        // Additional texture for postprocess distortion
+        Texture2D *addedTexture;
         // This boolean indicates whether or not the postprocess effect takes place
         bool postprocessEffect = false;
         // Initialize the renderer including the sky and the Postprocessing objects.

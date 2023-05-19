@@ -15,7 +15,7 @@ namespace our {
 
             //Geenerates the texture names
             //Here we only want 1 texture with name stored in "name" variable given here in the class
-             glGenTextures(1, &name);
+            glGenTextures(1, &name);
         };
 
         // This deconstructor deletes the underlying OpenGL texture
