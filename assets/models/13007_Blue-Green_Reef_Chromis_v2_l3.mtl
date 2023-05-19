@@ -1,0 +1,19 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 12.01.2012 15:06:33
+
+newmtl 13007_Blue_Green_Reef_Chromis_v1
+	Ns 55.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5850 0.5850 0.5850
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13004_Bicolor_Blenny_v1_diff.jpg
+	map_Kd 13004_Bicolor_Blenny_v1_diff.jpg
+	map_Ks 13004_Bicolor_Blenny_v1_spec.jpg
+	map_bump 13004_Bicolor_Blenny_v1_bump.jpg
+	bump 13004_Bicolor_Blenny_v1_bump.jpg
