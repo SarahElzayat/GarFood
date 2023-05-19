@@ -104,8 +104,9 @@ namespace our
                             score += 20;
                             return false;
                         }
-                        else if ((glm::length(colliderPosition.x - obstaclePosition.x) < 0.05f || glm::length(colliderPosition.z - obstaclePosition.z) < 0.05f) && colliderType == "meshmesh" && obstacleType == "lamp")
+                        else if ((glm::length(colliderPosition.x - obstaclePosition.x) < 0.25 && glm::length(colliderPosition.z - obstaclePosition.z) < 0.1) && colliderType == "meshmesh" && obstacleType == "lamp")
                         {
+                            score -= 10;
                             return true;
                         }
                         else if (glm::length(colliderPosition.x - obstaclePosition.x) < 1   && glm::length(colliderPosition.z - obstaclePosition.z) < 1.2 && colliderType == "meshmesh" && obstacleType == "fekry")
