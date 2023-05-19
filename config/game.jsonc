@@ -22,6 +22,10 @@
         "textured": {
           "vs": "assets/shaders/textured.vert",
           "fs": "assets/shaders/textured.frag"
+        },
+        "lighted": {
+          "vs": "assets/shaders/light.vert",
+          "fs": "assets/shaders/light.frag"
         }
       },
       "textures": {
@@ -36,7 +40,9 @@
         "fence1": "assets/textures/fence2.jpg",
         "sun": "assets/textures/sun.jpg",
         "lamp": "assets/textures/lamp.png",
-        "finish_line": "assets/textures/start.png"
+        "finish_line": "assets/textures/start.png",
+        "white": "assets/textures/white.jpg",
+        "black": "assets/textures/black.jpg"
       },
       "meshes": {
         "plane": "assets/models/plane.obj",
@@ -56,8 +62,8 @@
       },
       "materials": {
         "road": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -67,8 +73,15 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "road",
-          "sampler": "default"
+          // "texture": "road",
+          "sampler": "default",
+
+
+          "albedo": "road",
+          "roughness": "black",
+          "specular": "white",
+          "emissive": "black",
+          "ambient_occlusion": "road"
         },
         "pebbles": {
           "type": "textured",
@@ -1115,7 +1128,7 @@
         ]
       },
       {
-                "name": "fish",
+        "name": "fish",
 
         "position": [-2, 0.5, -30],
         "rotation": [-90, 0, 0],
@@ -1135,7 +1148,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {
+        "name": "fish",
 
         "position": [1, 0.5, -40],
         "rotation": [-90, 0, 0],
@@ -1155,7 +1169,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {
+        "name": "fish",
 
         "position": [-3.5, 0.5, -50],
         "rotation": [-90, 0, 0],
@@ -1175,7 +1190,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {
+        "name": "fish",
 
         "position": [3.5, 0.5, -60],
         "rotation": [-90, 0, 0],
@@ -1195,7 +1211,8 @@
           }
         ]
       },
-      {        "name": "fish",
+      {
+        "name": "fish",
 
         "position": [-2, 0.5, -70],
         "rotation": [-90, 0, 0],
@@ -1330,6 +1347,17 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
+          },
+          {
+            "type": "Light",
+            "lightType": "spot",
+            "attenuation": [0, 0.05, 0],
+            "position": [5.25, 1, -3],
+            "direction": [1, -1, 0],
+            "diffuse": [0, 1, 0],
+            "specular": [1, 1, 1],
+            "cone_angles.inner": 10,
+            "cone-angles.outer": 40
           }
         ]
       },

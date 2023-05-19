@@ -39,6 +39,8 @@ namespace our
         else if (type == LightComponent::getID())
         {
             component = entity->addComponent<LightComponent>();
+        }
+
         else if (type == CollisionComponent::getID())
         {
             component = entity->addComponent<CollisionComponent>();
