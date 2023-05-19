@@ -70,8 +70,8 @@
                     "tint": [0.45, 0.4, 0.5, 1]
                 },
                 "grass":{
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling":{
                             "enabled": false
@@ -81,8 +81,11 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    "texture": "grass",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo" :"grass",
+                    "roughness":"roughness",
+                    "specular":"white",
+                    "ambient_occlusion":"black"
                 },
                 "monkey":{
                     "type": "lighted",
@@ -97,11 +100,10 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "sampler": "default",
-                    "albedo" :"albedo",
+                    "albedo" :"monkey",
                     "roughness":"roughness",
-                    "specular":"specular",
-                    "emissive":"monkey",
-                    "ambient_occlusion":"ambient_occlusion"
+                    "specular":"white",
+                    "ambient_occlusion":"black"
                 },
                 "moon":{
                     "type": "lighted",
@@ -149,16 +151,16 @@
                         ]
                     },
                     {
-                        "position": [0, 1, 0],
+                        "position": [0, -1, 0],
                         "rotation": [0, 0, 0],
                         "components": [
                             {
                                 "type": "Light",
                                 "lightType": "point",
-                                "attenuation":[0,0.1,0],
-                                "position": [0, 1, 0],
-                                "diffuse": [0, 1, 0],
-                                "specular": [1, 1, 1]
+                                "attenuation":[0.001,0.01,0.1],
+                                "position": [0, -1, 0],
+                                "diffuse": [0, 0, 1],
+                                "specular": [0, 0, 1]
                             }
                         ]
                     }
