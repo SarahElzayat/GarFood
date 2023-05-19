@@ -41,7 +41,9 @@
                 "emissive":"assets/textures/emissive.jpg",
                 "roughness":"assets/textures/roughness.jpg",
                 "yellow":"assets/textures/yellow.jpeg",
-                "black":"assets/textures/black.jpg"
+                "black":"assets/textures/black.jpg",
+                "white": "assets/textures/white.jpg"
+                
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -70,8 +72,8 @@
                     "tint": [0.45, 0.4, 0.5, 1]
                 },
                 "grass":{
-                    "type": "textured",
-                    "shader": "textured",
+                    "type": "lighted",
+                    "shader": "lighted",
                     "pipelineState": {
                         "faceCulling":{
                             "enabled": false
@@ -81,8 +83,11 @@
                         }
                     },
                     "tint": [1, 1, 1, 1],
-                    "texture": "grass",
-                    "sampler": "default"
+                    "sampler": "default",
+                    "albedo" :"grass",
+                    "roughness":"roughness",
+                    "specular":"white",
+                    "ambient_occlusion":"black"
                 },
                 "monkey":{
                     "type": "lighted",
@@ -97,11 +102,10 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "sampler": "default",
-                    "albedo" :"albedo",
+                    "albedo" :"monkey",
                     "roughness":"roughness",
-                    "specular":"specular",
-                    "emissive":"monkey",
-                    "ambient_occlusion":"ambient_occlusion"
+                    "specular":"white",
+                    "ambient_occlusion":"black"
                 },
                 "moon":{
                     "type": "lighted",
@@ -149,19 +153,19 @@
                         ]
                     },
                     {
-                        "position": [-1, 1, 0],
+                        "position": [0, 1, 0],
                         "rotation": [0, 0, 0],
                         "components": [
                             {
                                 "type": "Light",
                                 "lightType": "spot",
                                 "attenuation":[0,0.05,0],
-                                "position": [1, 1, 0],
-                                "direction": [1, -1, 0],
-                                "diffuse": [0, 1, 0],
+                                "position": [0, 1, 0],
+                                "direction": [0.1, 1, -1],
+                                "diffuse": [1, 1, 1],
                                 "specular": [1, 1, 1],
                                 "cone_angles.inner": 10,
-                                "cone-angles.outer": 30
+                                "cone_angles.outer": 120
                             }
                         ]
                     }
@@ -178,7 +182,7 @@
                     },
                     {
                         "type": "Movement",              
-                        "angularVelocity": [0, 30, 0]
+                        "angularVelocity": [0, 0, 0]
                     }
                 ]
             },
