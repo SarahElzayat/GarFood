@@ -35,11 +35,14 @@
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
                 "monkey": "assets/textures/monkey.png",
-                "albedo": "assets/textures/white.jpg",
+                "white": "assets/textures/white.jpg",
                 "specular": "assets/textures/specular.jpg",
                 "ambient_occlusion": "assets/textures/ambient_occlusion.jpg",
                 "emissive":"assets/textures/emissive.jpg",
-                "roughness":"assets/textures/roughness.jpg"
+                "roughness":"assets/textures/roughness.jpg",
+                "black":"assets/textures/black.jpg",
+                "albedo":"assets/textures/albedo.jpg"
+                
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -95,11 +98,10 @@
                     },
                     "tint": [1, 1, 1, 1],
                     "sampler": "default",
-                    "albedo" :"albedo",
+                    "albedo" :"monkey",
                     "roughness":"roughness",
-                    "specular":"specular",
-                    "emissive":"monkey",
-                    "ambient_occlusion":"ambient_occlusion"
+                    "specular":"white",
+                    "ambient_occlusion":"black"
                 },
                 "moon":{
                     "type": "lighted",
@@ -115,7 +117,7 @@
                     "tint": [1, 1, 1, 1],
                     "sampler": "default",
                     "albedo" :"albedo",
-                    "roughness":"roughness",
+                    "roughness":"black",
                     "specular":"specular",
                     "emissive":"moon",
                     "ambient_occlusion":"ambient_occlusion"
@@ -147,15 +149,14 @@
                         ]
                     },
                     {
-                        "position": [0, -1, 0],
-                        "rotation": [0, 0, 0],
+                        "position": [1, 0, 0],
                         "components": [
                             {
                                 "type": "Light",
                                 "lightType": "directional",
-                                "direction": [1, 0, 0],
+                                "direction": [-1, 0, 0],
                                 "diffuse": [0, 0, 1],
-                                "specular": [1, 1, 1]
+                                "specular": [0, 0, 1]
                             }
                         ]
                     }
