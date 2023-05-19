@@ -24,8 +24,8 @@
           "fs": "assets/shaders/textured.frag"
         },
         "lighted": {
-          "vs": "assets/shaders/light.vert",
-          "fs": "assets/shaders/light.frag"
+            "vs": "assets/shaders/light.vert",
+            "fs": "assets/shaders/light.frag"
         }
       },
       "textures": {
@@ -41,8 +41,10 @@
         "sun": "assets/textures/sun.jpg",
         "lamp": "assets/textures/lamp.png",
         "finish_line": "assets/textures/start.png",
+        "roughness":"assets/textures/asphalt/roughness.jpg",
+        "black":"assets/textures/black.jpg",
         "white": "assets/textures/white.jpg",
-        "black": "assets/textures/black.jpg"
+        "yellow": "assets/textures/yellow.jpg"
       },
       "meshes": {
         "plane": "assets/models/plane.obj",
@@ -62,8 +64,8 @@
       },
       "materials": {
         "road": {
-          "type": "lighted",
-          "shader": "lighted",
+          "type": "textured",
+          "shader": "textured",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -73,15 +75,14 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          // "texture": "road",
-          "sampler": "default",
-
-
-          "albedo": "road",
-          "roughness": "black",
-          "specular": "white",
-          "emissive": "black",
-          "ambient_occlusion": "road"
+          "texture": "road",
+          "sampler": "default"
+          
+          // "sampler": "default",
+          // "albedo" :"road",
+          // "roughness":"roughness",
+          // "specular":"white",
+          // "ambient_occlusion":"black"
         },
         "pebbles": {
           "type": "textured",
@@ -160,8 +161,8 @@
           "sampler": "default"
         },
         "dog": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -171,8 +172,11 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "dog",
-          "sampler": "default"
+          "sampler": "default",
+          "albedo" :"dog",
+          "roughness":"roughness",
+          "specular":"white",
+          "ambient_occlusion":"black"
         },
         "sun": {
           "type": "textured",
@@ -205,8 +209,8 @@
           "sampler": "default"
         },
         "fish": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -216,12 +220,18 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "fish",
-          "sampler": "default"
+          // "texture": "fish",
+          // "sampler": "default"
+          
+          "sampler": "default",
+          "albedo" :"fish",
+          "roughness":"roughness",
+          "specular":"white",
+          "ambient_occlusion":"black"
         },
         "fish2": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -231,8 +241,14 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "fish2",
-          "sampler": "default"
+          // "texture": "fish2",
+          // "sampler": "default"
+          
+          "sampler": "default",
+          "albedo" :"fish2",
+          "roughness":"roughness",
+          "specular":"white",
+          "ambient_occlusion":"black"
         }
       }
     },
@@ -1128,7 +1144,7 @@
         ]
       },
       {
-        "name": "fish",
+                "name": "fish",
 
         "position": [-2, 0.5, -30],
         "rotation": [-90, 0, 0],
@@ -1148,8 +1164,7 @@
           }
         ]
       },
-      {
-        "name": "fish",
+      {        "name": "fish",
 
         "position": [1, 0.5, -40],
         "rotation": [-90, 0, 0],
@@ -1169,8 +1184,7 @@
           }
         ]
       },
-      {
-        "name": "fish",
+      {        "name": "fish",
 
         "position": [-3.5, 0.5, -50],
         "rotation": [-90, 0, 0],
@@ -1190,8 +1204,7 @@
           }
         ]
       },
-      {
-        "name": "fish",
+      {        "name": "fish",
 
         "position": [3.5, 0.5, -60],
         "rotation": [-90, 0, 0],
@@ -1211,8 +1224,7 @@
           }
         ]
       },
-      {
-        "name": "fish",
+      {        "name": "fish",
 
         "position": [-2, 0.5, -70],
         "rotation": [-90, 0, 0],
@@ -1234,7 +1246,7 @@
       },
       ///         penalties       ///
       {
-        "name": "fekry",
+        //"name": "fekry",
 
         "position": [2, -0.5, -2],
         "rotation": [-90, 0, 0],
@@ -1251,7 +1263,7 @@
         ]
       },
       {
-        "name": "fekry",
+        //"name": "fekry",
         "position": [-3, -0.5, -12],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1267,7 +1279,7 @@
         ]
       },
       {
-        "name": "fekry",
+       // "name": "fekry",
 
         "position": [-2, -0.5, -25],
         "rotation": [-90, 0, 0],
@@ -1284,7 +1296,7 @@
         ]
       },
       {
-        "name": "fekry",
+        //"name": "fekry",
 
         "position": [2, -0.5, -35],
         "rotation": [-90, 0, 0],
@@ -1301,7 +1313,7 @@
         ]
       },
       {
-        "name": "fekry",
+        //"name": "fekry",
 
         "position": [3, -0.5, -45],
         "rotation": [-90, 0, 0],
@@ -1318,7 +1330,7 @@
         ]
       },
       {
-        "name": "fekry",
+        //"name": "fekry",
 
         "position": [2, -0.5, -55],
         "rotation": [-90, 0, 0],
@@ -1347,17 +1359,6 @@
             "type": "Mesh Renderer",
             "mesh": "lamp",
             "material": "lamp"
-          },
-          {
-            "type": "Light",
-            "lightType": "spot",
-            "attenuation": [0, 0.05, 0],
-            "position": [5.25, 1, -3],
-            "direction": [1, -1, 0],
-            "diffuse": [0, 1, 0],
-            "specular": [1, 1, 1],
-            "cone_angles.inner": 10,
-            "cone-angles.outer": 40
           }
         ]
       },
