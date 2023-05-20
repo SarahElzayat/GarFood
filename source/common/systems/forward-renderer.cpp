@@ -327,13 +327,13 @@ namespace our
             glBindVertexArray(postProcessVertexArray);
 
             // send other effect
-            if(addedTexture){
-                std::cout<<"aaah";
-                glActiveTexture(GL_TEXTURE1);
-                addedTexture->bind();
-                postprocessMaterial->sampler->bind(1);
-                postprocessMaterial->shader->set("distortion_sampler", 1);
-            }
+            // if(addedTexture){
+            //     std::cout<<"aaah";
+            //     glActiveTexture(GL_TEXTURE1);
+            //     addedTexture->bind();
+            //     postprocessMaterial->sampler->bind(1);
+            //     postprocessMaterial->shader->set("distortion_sampler", 1);
+            // }
 
             // use glDrawArrays to draw the triangle
             // first by specifying the mode of what we're drawing which is GL_TRIANGLES
