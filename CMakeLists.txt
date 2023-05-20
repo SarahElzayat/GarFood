@@ -71,6 +71,8 @@ set(COMMON_SOURCES
 
         source/common/components/camera.hpp
         source/common/components/camera.cpp
+        source/common/components/lighting.hpp
+        source/common/components/lighting.cpp
         source/common/components/mesh-renderer.hpp
         source/common/components/mesh-renderer.cpp
         source/common/components/free-camera-controller.hpp
@@ -115,6 +117,7 @@ set(STATES_SOURCES
         source/states/material-test-state.hpp
         source/states/entity-test-state.hpp
         source/states/renderer-test-state.hpp
+        source/states/light-test-state.hpp
         source/states/trial-state.hpp
         source/states/end-state.hpp
         source/states/lost-state.hpp

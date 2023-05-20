@@ -4,6 +4,7 @@
 #include "../components/camera.hpp"
 #include "../components/mesh-renderer.hpp"
 #include "../asset-loader.hpp"
+#include "../components/lighting.hpp"
 
 #include <glad/gl.h>
 #include <vector>
@@ -40,6 +41,8 @@ namespace our
         GLuint postprocessFrameBuffer, postProcessVertexArray;
         Texture2D *colorTarget, *depthTarget;
         TexturedMaterial* postprocessMaterial;
+        // Objects used for light
+        std::vector<LightComponent *> lightings;
     public:
         // Additional texture for postprocess distortion
         Texture2D *addedTexture;

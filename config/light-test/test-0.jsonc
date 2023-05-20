@@ -1,0 +1,114 @@
+{
+    "start-scene": "material-test",
+    "window":
+    {
+        "title":"Material Test Window",
+        "size":{
+            "width":512,
+            "height":512
+        },
+        "fullscreen": false
+    },
+    "screenshots":{
+        "directory": "screenshots/material-test",
+        "requests": [
+            { "file": "test-1.png", "frame":  1 }
+        ]
+    },
+    "scene": {
+        "assets":{
+            "shaders":{
+                "lighted":{
+                    "vs":"assets/shaders/light.vert",
+                    "fs":"assets/shaders/light.frag"
+                }
+            },
+            "meshes":{
+                "mesh": "assets/models/monkey.obj",
+                "Suzanne":"assets/models/Suzanne.obj"
+            },
+            "textures":{
+                "moon": "assets/textures/moon.jpg",
+                "grass": "assets/textures/grass_ground_d.jpg",
+                "wood": "assets/textures/wood.jpg",
+                "glass": "assets/textures/glass-panels.png",
+                "monkey": "assets/textures/monkey.png",
+                "albedo": "assets/textures/albedo.jpg",
+                "specular": "assets/textures/specular.jpg",
+                "ambient_occlusion": "assets/textures/ambient_occlusion.jpg",
+                "emissive":"assets/textures/emissive.jpg",
+                "roughness":"assets/textures/roughness.jpg"
+            },
+            "samplers":{
+                "default":{}
+            },
+            "materials":{
+                "material":{
+                    "type": "lighted",
+                    "shader": "lighted",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "monkey",
+                    "sampler": "default",
+                    "albedo" :"albedo",
+                    "roughness":"roughness",
+                    "specular":"specular",
+                    "emissive":"emissive",
+                    "ambient_occlusion":"ambient_occlusion"
+                },
+                "suzanne":{
+                    "type": "lighted",
+                    "shader": "light",
+                    "pipelineState": {
+                        "faceCulling":{
+                            "enabled": false
+                        },
+                        "depthTesting":{
+                            "enabled": true
+                        }
+                    },
+                    "texture":"monkey",
+                    "sampler": "default",
+                    "albedo" :"albedo",
+                    "roughness":"roughness",
+                    "specular":"specular",
+                    "emissive":"emissive",
+                    "ambient_occlusion":"ambient_occlusion"
+                }
+            }
+        },
+        "objects": [
+            {
+                "position": [2, 0, 2],
+                "rotation": [0, -45, 0]
+            },
+            {
+                "position": [2, 0, -2],
+                "rotation": [0, 45, 0]
+            },
+            {
+                "position": [-2, 0, 2],
+                "rotation": [0, -135, 0]
+            },
+            {
+                "position": [-2, 0, -2],
+                "rotation": [0, 135, 0]
+            }
+        ],
+        "camera": {
+            "eye": [4, 1, 5],
+            "center": [0, 0, 0],
+            "up": [0, 1, 0],
+            "fov": 90,
+            "near": 0.01,
+            "far": 1000
+        }
+    }
+}

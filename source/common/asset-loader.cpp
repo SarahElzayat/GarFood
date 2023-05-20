@@ -8,6 +8,7 @@
 #include "mesh/mesh-utils.hpp"
 #include "material/material.hpp"
 #include "deserialize-utils.hpp"
+#include "components/lighting.hpp"
 
 namespace our {
 
@@ -96,6 +97,21 @@ namespace our {
             }
         }
     };
+    
+    template<>
+    void AssetLoader<LightComponent>::deserialize(const nlohmann::json& data) {
+
+        if(data.is_object()){
+
+            for(auto& [name, desc] : data.items()){
+
+                std::string type = desc.value("type", "");
+                auto light =  new LightComponent();
+                light->deserialize(desc);
+                assets[name] = light;
+            }
+        }
+    };
 
     void deserializeAllAssets(const nlohmann::json& assetData){
         if(!assetData.is_object()) return;
@@ -109,6 +125,8 @@ namespace our {
             AssetLoader<Mesh>::deserialize(assetData["meshes"]);
         if(assetData.contains("materials"))
             AssetLoader<Material>::deserialize(assetData["materials"]);
+        if(assetData.contains("lights"))
+            AssetLoader<LightComponent>::deserialize(assetData["lights"]);
     }
 
     void clearAllAssets(){
@@ -117,6 +135,7 @@ namespace our {
         AssetLoader<Sampler>::clear();
         AssetLoader<Mesh>::clear();
         AssetLoader<Material>::clear();
+        AssetLoader<LightComponent>::clear();
     }
 
 }
