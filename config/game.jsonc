@@ -83,7 +83,7 @@
           "tint": [1, 1, 1, 1],
           //"emissive":"asplaht-emissive"
           "sampler": "default",
-          "albedo" :"darkerRoad",
+          "albedo" :"road",
           "roughness":"roughness",
           "specular":"white",
           "ambient_occlusion":"black"
