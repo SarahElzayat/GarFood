@@ -64,6 +64,8 @@
       },
       "materials": {
         "road": {
+          // "type": "lighted",
+          // "shader": "lighted",
           "type": "textured",
           "shader": "textured",
           "pipelineState": {
@@ -82,7 +84,8 @@
           // "albedo" :"road",
           // "roughness":"roughness",
           // "specular":"white",
-          // "ambient_occlusion":"black"
+          // "ambient_occlusion":"black",
+          // "emissive": "yellow"
         },
         "pebbles": {
           "type": "textured",
@@ -98,6 +101,13 @@
           "tint": [1, 1, 1, 1],
           "texture": "pebbles",
           "sampler": "default"
+
+          // "sampler": "default",
+          // "albedo" :"pebbles",
+          // "roughness":"roughness",
+          // "specular":"white",
+          // "ambient_occlusion":"black",
+          // "emissive": "yellow"
         },
         "fence1": {
           "type": "textured",
@@ -114,6 +124,12 @@
           "transparent": true,
           "texture": "fence1",
           "sampler": "default"
+
+          // "sampler": "default",
+          // "albedo" :"fence1",
+          // "roughness":"white",
+          // "specular":"white",
+          // "ambient_occlusion":"white"
         },
         "bird": {
           "type": "textured",
@@ -194,8 +210,8 @@
           "sampler": "default"
         },
         "cat": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -205,8 +221,13 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "cat",
-          "sampler": "default"
+          // "texture": "cat",
+          // "sampler": "default"
+          "sampler": "default",
+          "albedo" :"cat",
+          "roughness":"black",
+          "specular":"white",
+          "ambient_occlusion":"black"
         },
         "fish": {
           "type": "lighted",
@@ -225,7 +246,7 @@
           
           "sampler": "default",
           "albedo" :"fish",
-          "roughness":"roughness",
+          "roughness":"black",
           "specular":"white",
           "ambient_occlusion":"black"
         },
@@ -1493,7 +1514,20 @@
             "type": "Collision"
           }
         ]
-      }
+      },
+      {
+        "position": [-10, 3, -2],
+        "rotation": [0, 0, 0],
+        "components": [
+            {
+                "type": "Light",
+                "lightType": "directional",
+                "direction": [-1, -1, 0],
+                "diffuse": [0.4, 0.2, 0],
+                "specular": [1, 1, 1]
+            }
+        ]
+    }
     ]
   }
 }
