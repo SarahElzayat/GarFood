@@ -1,7 +1,7 @@
 #include "forward-renderer.hpp"
 #include "../mesh/mesh-utils.hpp"
 #include "../texture/texture-utils.hpp"
-
+#include<iostream>
 namespace our
 {
 
@@ -328,6 +328,7 @@ namespace our
 
             // send other effect
             if(addedTexture){
+                std::cout<<"aaah";
                 glActiveTexture(GL_TEXTURE1);
                 addedTexture->bind();
                 postprocessMaterial->sampler->bind(1);
@@ -343,7 +344,7 @@ namespace our
             glDrawArrays(GL_TRIANGLES, 0, 3);
 
             // unbind the vertex array after it is done rendering
-            glBindVertexArray(0);
+            // glBindVertexArray(0);
         }
     }
 
