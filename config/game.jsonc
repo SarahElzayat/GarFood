@@ -128,7 +128,7 @@
 
           "sampler": "default",
           "albedo" :"fence1",
-          "roughness":"roughness",
+          "roughness":"black",
           "specular":"white",
           "ambient_occlusion":"black"
         },
@@ -316,7 +316,7 @@
                       "diffuse":[1, 1, 1],
                       "specular":[1, 1, 1],
                       "cone_angles":[50, 0],
-                      "attenuation":[0.1, 0.0225, 0.31]
+                      "attenuation":[0.1, 0.025, 0]
                   }
               ]
           }
