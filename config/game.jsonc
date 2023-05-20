@@ -42,6 +42,9 @@
         "lamp": "assets/textures/lamp.png",
         "finish_line": "assets/textures/start.png",
         "roughness":"assets/textures/asphalt/roughness.jpg",
+        "asplaht-albedo":"assets/textures/asphalt/albedo.jpg",
+        "asplaht-specular":"assets/textures/asphalt/specular.jpg",
+        "asplaht-emissive":"assets/textures/asphalt/emissive.jpg",
         "black":"assets/textures/black.jpg",
         "white": "assets/textures/white.jpg",
         "yellow": "assets/textures/yellow.jpg"
@@ -77,13 +80,11 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          // "texture": "road",
-          // "sampler": "default"
-          
+          //"emissive":"asplaht-emissive"
           "sampler": "default",
           "albedo" :"road",
           "roughness":"roughness",
-          "specular":"white",
+          "specular":"asplaht-specular",
           "ambient_occlusion":"black"
         },
         "pebbles": {
@@ -125,7 +126,7 @@
 
           "sampler": "default",
           "albedo" :"fence1",
-          "roughness":"white",
+          "roughness":"roughness",
           "specular":"white",
           "ambient_occlusion":"black"
         },
@@ -160,8 +161,8 @@
           "sampler": "default"
         },
         "lamp": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -171,8 +172,11 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "lamp",
-          "sampler": "default"
+          "sampler": "default",
+          "albedo" :"lamp",
+          "roughness":"roughness",
+          "specular":"white",
+          "ambient_occlusion":"black"
         },
         "dog": {
           "type": "lighted",
@@ -188,7 +192,7 @@
           "tint": [1, 1, 1, 1],
           "sampler": "default",
           "albedo" :"dog",
-          "roughness":"roughness",
+          "roughness":"black",
           "specular":"white",
           "ambient_occlusion":"black"
         },
@@ -224,7 +228,7 @@
           "sampler": "default",
           "albedo" :"cat",
           "roughness":"black",
-          "specular":"white",
+          "specular":"black",
           "ambient_occlusion":"black"
         },
         "fish": {
@@ -299,6 +303,20 @@
                 "type": "Collision"
               }
             ]
+          },
+          {
+              "position": [0, 1, -1],
+              "rotation": [0, -1, -1],
+              "components": [
+                  {
+                      "type": "Light",
+                      "lightType": "spot",
+                      "diffuse":[0, 0, 1],
+                      "specular":[0, 0, 1],
+                      "cone_angles":[40, 0],
+                      "attenuation":[0.1, 0, 0]
+                  }
+              ]
           }
         ]
       },
@@ -1512,20 +1530,20 @@
             "type": "Collision"
           }
         ]
-      }
-    //   {
-    //     "position": [-10, 3, -2],
-    //     "rotation": [0, 0, 0],
-    //     "components": [
-    //         {
-    //             "type": "Light",
-    //             "lightType": "directional",
-    //             "direction": [-1, -1, 0],
-    //             "diffuse": [0.4, 0.2, 0],
-    //             "specular": [1, 1, 1]
-    //         }
-    //     ]
-    // }
+      },
+      {
+        "position": [10, 3, -2],
+        "rotation": [0, 0, 0],
+        "components": [
+            {
+                "type": "Light",
+                "lightType": "directional",
+                "direction": [-1, -1, 0],
+                "diffuse": [0.8, 0.5, 0],
+                "specular": [1, 1, 1]
+            }
+        ]
+    }
     ]
   }
 }
