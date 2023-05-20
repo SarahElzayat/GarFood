@@ -34,7 +34,7 @@
         "cat": "assets/textures/cat.jpg",
         "fish": "assets/textures/fish.jpg",
         "fish2": "assets/textures/fish2.jpg",
-        "dog": "assets/textures/dog.jpg",
+        "dog": "assets/textures/aus_dog.jpg",
         "gravel": "assets/textures/gravel.jpg",
         "pebbles": "assets/textures/pebbels.jpg",
         "fence1": "assets/textures/fence2.jpg",
@@ -51,7 +51,7 @@
         "fish": "assets/models/fish.obj",
         "fish2": "assets/models/fish2.obj",
         "sun": "assets/models/sphere.obj",
-        "dog": "assets/models/dog.obj",
+        "dog": "assets/models/aus_dog.obj",
         "lamp": "assets/models/lamp.obj"
       },
       "samplers": {
