@@ -1,0 +1,18 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 17.02.2012 12:44:07
+
+newmtl Australian_Cattle_Dog
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.1800 0.1800 0.1800
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Australian_Cattle_Dog_dif.jpg
+	map_Kd Australian_Cattle_Dog_dif.jpg
+	map_bump Australian_Cattle_Dog_bump.jpg
+	bump Australian_Cattle_Dog_bump.jpg

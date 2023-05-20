@@ -109,7 +109,7 @@ namespace our
                             score -= 10;
                             return true;
                         }
-                        else if (glm::length(colliderPosition.x - obstaclePosition.x) < 1   && glm::length(colliderPosition.z - obstaclePosition.z) < 1.2 && colliderType == "meshmesh" && obstacleType == "fekry")
+                        else if (glm::length(colliderPosition.x - obstaclePosition.x) < 1   && glm::length(colliderPosition.z - obstaclePosition.z) < 1.8 && colliderType == "meshmesh" && obstacleType == "fekry")
                         {
                             world->markForRemoval(obstacle->getOwner());
 

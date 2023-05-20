@@ -11,7 +11,7 @@
   "scene": {
     "renderer": {
       "sky": "assets/textures/sky7.jpg",
-      "postprocess": "assets/shaders/postprocess/grayscale.frag",
+      "postprocess": "assets/shaders/postprocess/distortion.frag",
       "addedTex": "assets/textures/water.png"
     },
     "assets": {
@@ -31,7 +31,7 @@
         "cat": "assets/textures/cat.jpg",
         "fish": "assets/textures/fish.jpg",
         "fish2": "assets/textures/fish2.jpg",
-        "dog": "assets/textures/dog.jpg",
+        "dog": "assets/textures/aus_dog.jpg",
         "gravel": "assets/textures/gravel.jpg",
         "pebbles": "assets/textures/pebbels.jpg",
         "fence1": "assets/textures/fence2.jpg",
@@ -42,12 +42,11 @@
       },
       "meshes": {
         "plane": "assets/models/plane.obj",
-        "bird": "assets/models/bird.obj",
+        
         "cat": "assets/models/cat.obj",
-        "fish": "assets/models/fish.obj",
         "fish2": "assets/models/fish2.obj",
         "sun": "assets/models/sphere.obj",
-        "dog": "assets/models/dog.obj",
+        "dog": "assets/models/aus_dog.obj",
         "lamp": "assets/models/lamp.obj"
       },
       "samplers": {
