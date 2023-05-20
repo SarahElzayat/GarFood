@@ -58,19 +58,20 @@ class Playstate : public our::State
         // And finally we use the renderer system to draw the scene
         world.deleteMarkedEntities();
 
-        if(collided == true){
+        if(collided == true)
+        {
             renderer.postprocessEffect = true;
-            // renderer.applyPostprocessing(true);
             collided = false;
             waitFor = 0;
         }
 
-        if(waitFor == 50 && renderer.postprocessEffect == true){
+        if(waitFor == 100 && renderer.postprocessEffect == true)
+        {
             renderer.postprocessEffect = false;
-            // renderer.applyPostprocessing(false);
             waitFor = 0;
         }
-        else{
+        else
+        {
             waitFor++; 
         }
 

@@ -11,7 +11,7 @@
   "scene": {
     "renderer": {
       "sky": "assets/textures/sky7.jpg",
-      "postprocess": "assets/shaders/postprocess/vignette.frag",
+      "postprocess": "assets/shaders/postprocess/fisheye.frag",
       "addedTex": "assets/textures/water.png"
     },
     "assets": {
@@ -1816,7 +1816,7 @@
 
       ///         penalties       ///
       {
-        //"name": "fekry",
+        "name": "fekry",
 
         "position": [2, -0.5, -2],
         "rotation": [-90, 0, 0],
@@ -1833,7 +1833,7 @@
         ]
       },
       {
-        //"name": "fekry",
+        "name": "fekry",
         "position": [-3, -0.5, -12],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
@@ -1849,7 +1849,7 @@
         ]
       },
       {
-       // "name": "fekry",
+       "name": "fekry",
 
         "position": [-2, -0.5, -25],
         "rotation": [-90, 0, 0],
@@ -1866,7 +1866,7 @@
         ]
       },
       {
-        //"name": "fekry",
+        "name": "fekry",
 
         "position": [2, -0.5, -35],
         "rotation": [-90, 0, 0],
@@ -1883,7 +1883,7 @@
         ]
       },
       {
-        //"name": "fekry",
+        "name": "fekry",
 
         "position": [3, -0.5, -45],
         "rotation": [-90, 0, 0],
@@ -1900,7 +1900,7 @@
         ]
       },
       {
-        //"name": "fekry",
+        "name": "fekry",
 
         "position": [2, -0.5, -55],
         "rotation": [-90, 0, 0],
