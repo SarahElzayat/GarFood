@@ -309,11 +309,9 @@
               ,
               {
                       "type": "Light",
-                      "rotation": [0, 0, -1],
                       "lightType": "point",
                       "diffuse": [0.5, 0.5, 0.5],
                       "specular": [1, 1, 1],
-                      //"cone_angles":[90, 50],
                       "attenuation":[0.01, 0.05, 0.01]
               }
             ]
@@ -2373,6 +2371,20 @@
           
         ]
       }
+      ,
+      {
+        "position": [20, 3, -2],
+        "rotation": [0, 0, 0],
+        "components": [
+            {
+                "type": "Light",
+                "lightType": "directional",
+                "direction": [-1, -1, 0],
+                "diffuse": [1, 1, 0],
+                "specular": [1, 1, 0]
+            }
+        ]
+    }
     ]
   }
 }
