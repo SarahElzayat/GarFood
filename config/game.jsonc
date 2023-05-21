@@ -306,16 +306,7 @@
               {
                 "type": "Collision"
               }
-              ,
-              {
-                      "type": "Light",
-                      "rotation": [0, 0, -1],
-                      "lightType": "spot",
-                      "diffuse": [0.5, 0.5, 0.5],
-                      "specular": [1, 1, 1],
-                      "cone_angles":[90, 50],
-                      "attenuation":[0.01, 0.05, 0.01]
-              }
+              
             ]
           }
         ]
@@ -2358,37 +2349,21 @@
         ]
       },
       {
-        "position": [0, 2, -205],
+        "position": [0, 2, -200],
+        "rotation": [0, 90, 180],
         "name": "spot_light",
         "components": [
           {
               "type": "Light",
               "lightType": "spot",
               "attenuation":[0,0.1,0],
-              // "position":  [0, 2, -200],
-              // "direction": [0, -1, 0],
               "diffuse": [1, 0, 1],
               "specular": [1, 0, 1],
-              "cone_angles.inner": 10,
-              "cone_angles.outer": 80
+              "cone_angles":[20, 10]
           }
           
         ]
       }
-      ,
-      {
-        "position": [20, 3, -2],
-        "rotation": [0, 0, 0],
-        "components": [
-            {
-                "type": "Light",
-                "lightType": "directional",
-                "direction": [-1, -1, 0],
-                "diffuse": [1, 1, 0],
-                "specular": [1, 1, 0]
-            }
-        ]
-    }
     ]
   }
 }
