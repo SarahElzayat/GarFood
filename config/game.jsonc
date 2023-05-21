@@ -4,9 +4,9 @@
     "title": "Garfood",
     "size": {
       "width": 1280,
-      "height": 600
+      "height": 720
     },
-    "fullscreen": true
+    "fullscreen": false
   },
   "scene": {
     "renderer": {
@@ -75,8 +75,6 @@
         "road": {
           "type": "lighted",
           "shader": "lighted",
-          // "type": "textured",
-          // "shader": "textured",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
