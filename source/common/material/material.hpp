@@ -59,6 +59,8 @@ namespace our {
         Texture2D* albedo ;
         //reflection of light from a surface in a specific direction.
         Texture2D* specular ;
+        //it is a measure of how smooth or rough a surface appears
+        //affects specular light
         Texture2D* roughness ;
         //to create more realistic shadows 
         Texture2D* ambient_occlusion ;

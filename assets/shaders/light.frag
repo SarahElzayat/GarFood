@@ -42,7 +42,9 @@ struct Light {
     vec3 position;
     //for spot light and directional light
     vec3 direction;
+    //the part of light color that affects the diffuse of the material
     vec3 diffuse;
+    //the part of light that affects the specular of the material
     vec3 specular;
     //the reduction in light's intensity as it travels
     vec3 attenuation; // x*d^2 + y*d + z
@@ -65,8 +67,11 @@ struct Sky {
 //uniforms are variables that are sent from the CPU to the GPU
 //Uniform variables are used to pass data that is constant across all vertices in a draw call.
 uniform Light lights[MAX_LIGHTS];
+//number of light sources in the scene
 uniform int light_count;
+//ambient color struct
 uniform Sky sky;
+//The lit material
 uniform Material material;
 
 void main(){
@@ -90,9 +95,11 @@ void main(){
     vec3 ambient_light = (normal.y > 0) ?
         mix(sky.horizon, sky.top, normal.y * normal.y) :
         mix(sky.horizon, sky.bottom, normal.y * normal.y);
-
+    //calculate the color of the vertex without taking light sources into consideration
+    //it adds the ambient light effect and the emissive of the vertex itself
     frag_color = vec4(material_emissive + material_ambient * ambient_light, 1.0);
-
+    
+    //if light count > specified MAX_LIGHTS ==> clamp it to MAX_LIGHTS number
     int clamped_light_count = min(MAX_LIGHTS, light_count);
     //for each light source:
         //compute diffuse and specular amount and add them to the lighting effect of the vertex
@@ -102,11 +109,13 @@ void main(){
         vec3 world_to_light_dir;
 
         float attenuation = 1;
-
+        //world_to_light_dir in directional light is the negative of the light direction (it doesn't have position)
         if(light.type == DIRECTIONAL){
             world_to_light_dir = -light.direction;
         } else {
+            //in spot and point light ==> the direction is the vector from the vertx position to the light position
             world_to_light_dir = light.position - fs_in.world;
+            //get distance between light position and vertex to calculate attenuation
             float d = distance(light.position, fs_in.world);
 
             world_to_light_dir /= d;
@@ -123,13 +132,19 @@ void main(){
                 attenuation *= smoothstep(light.cone_angles.y, light.cone_angles.x, angle);
             }
         }
+        //caculate vertex color effects due to this light component:
+
+        //Material diffuse refers to the way a material scatters light in all directions
+        //if cos of the angle between the normal is less than 0 ==> it means there is no effect from the light to the vertex ==> consider it 0 not negative
         vec3 diffuse = light.diffuse * material_diffuse * max(0, dot(normal, world_to_light_dir));
-        
+        //the reflection of the light direction vector with respect to the surface normal vector using the "reflect" function
         vec3 reflected = reflect(-world_to_light_dir, normal);
-        
+        //Material specular is the way a material reflects light in a specific direction, causing it to appear shiny 
+        //simulate shiny surfaces
+        //phong 
         vec3 specular = light.specular * material_specular * pow(max(0, dot(view, reflected)), material_shininess);
 
-        
+        //add effect of light sources to the vertex color
         //color = emissive (if the material is lighting by itself) + ambient effect + diffuse effect+ specular effect
         frag_color.rgb += (diffuse + specular) * attenuation;
     }

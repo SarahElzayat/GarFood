@@ -27,6 +27,8 @@ namespace our
         int lives = 3;
 
     public:
+
+    // Inital set for the class
         void enter(Application *app)
         {
             this->app = app;
@@ -138,6 +140,7 @@ namespace our
                                 score -= 10;
                             }
                             lives--;
+                            // If player's out of lives, the state is changed to the lost state
                             if (lives == 0)
                             {
                                 app->changeState("lost");

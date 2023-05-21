@@ -69,7 +69,7 @@ namespace our
         TintedMaterial::setup(); 
 
         // sets the alpha threshold
-        // set the uniform "tint" in (shader) to the variable alphaTreshold
+        // set the uniform "alphaThreshold" in (shader) to the variable alphaTreshold
         this->shader->set("alphaThreshold", alphaThreshold); 
         
         glActiveTexture(GL_TEXTURE0);
@@ -98,8 +98,11 @@ namespace our
     // setup of the lightMaterial to create the needed textures based on the type
     void LightMaterial::setup() const
     {
-
+        // call the setup of the parent Material;
+        // which sets up the pipeline state 
+        // and sets the shader program to be used
         Material::setup();
+
         if (albedo != nullptr)
         {
             //select an active texture unit -> 0
@@ -108,6 +111,7 @@ namespace our
             albedo->bind();
             //bind the sampler to unit 0
             sampler->bind(0);
+            // send unit number to shader with uniform variable "albedo"
             shader->set("material.albedo", 0);
         }
         if (specular != nullptr)
@@ -118,6 +122,7 @@ namespace our
             specular->bind();
             //bind the sampler to unit 1
             sampler->bind(1);
+            // send unit number to shader with uniform variable "specular"
             shader->set("material.specular", 1);
         }
 
@@ -129,6 +134,7 @@ namespace our
             emissive->bind();
             //bind the sampler to unit 2
             sampler->bind(2);
+            // send unit number to shader with uniform variable "emissive"
             shader->set("material.emissive", 2);
         }
 
@@ -141,6 +147,7 @@ namespace our
             roughness->bind();
             //bind the sampler to unit 3
             sampler->bind(3);
+            // send unit number to shader with uniform variable "roughness"
             shader->set("material.roughness", 3);
         }
 
@@ -152,6 +159,7 @@ namespace our
             ambient_occlusion->bind();
             //bind the sampler to unit 4
             sampler->bind(4);
+            // send unit number to shader with uniform variable "ambient_occlusion"
             shader->set("material.ambient_occlusion", 4);
         }
         

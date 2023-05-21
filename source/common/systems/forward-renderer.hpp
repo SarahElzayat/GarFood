@@ -56,7 +56,7 @@ namespace our
         // Objects for the postprocessing materials
         TexturedMaterial *postprocessMaterial;
         std::vector<our::ShaderProgram *> postprocessShaders;
-        std::vector<our::TexturedMaterial *> postprocessMaterials;
+        // std::vector<our::TexturedMaterial *> postprocessMaterials;
         int postprocessingIndex = 0;
 
         // Objects used for light

@@ -3,14 +3,13 @@
 // The texture holding the scene pixels
 uniform sampler2D tex;
 
-// Read "assets/shaders/fullscreen.vert" to know what "tex_coord" holds;
 in vec2 tex_coord;
 out vec4 frag_color;
 
 // The number of samples we read to compute the blurring effect
 #define STEPS 16
 // The strength of the blurring effect
-#define STRENGTH 0.2
+#define STRENGTH 0.12
 
 void main(){
     // To apply radial blur, we compute the direction outward from the center to the current pixel
