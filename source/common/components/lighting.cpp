@@ -7,16 +7,17 @@
 namespace our
 {
 
-    // Reads light from a json object that is given from the user so we need to deserialize it
+    //Read light from a json object given from  user to deserialize it
     void LightComponent::deserialize(const nlohmann::json &data)
     {
         if (!data.is_object())
         {
             return;
         }
-        // read the type of the light and set the default to be directional.
+        //Read the type of the light and set the default to be directional.
         std::string type = data.value("lightType", "directional");  
 
+        //Specify the light type from the 3 types we have
         if (type == "directional")
         {
             lightType = LIGHT_TYPE::DIRECTIONAL;
@@ -30,10 +31,10 @@ namespace our
             lightType = LIGHT_TYPE::SPOT;
         }
         
-        //gets the lighting with the normal of the surface
+        //Gets the lighting with the normal of the surface
         diffuse = glm::vec3(data.value("diffuse", glm::vec3(1, 0.9, 0.8)));
 
-        //The shineness of the point which is basically the reflection angle of the light fallen on surface
+        //The shineness of the point or  the reflection angle of the light fallen
         specular = glm::vec3(data.value("specular", glm::vec3(1, 0.9, 0.8)));
 
         //Calculates a percentage of the original light that is used to color a pixel
