@@ -74,6 +74,7 @@ namespace our
                 // S & W moves the player slow down and speed up
                 if (app->getKeyboard().isPressed(GLFW_KEY_W) || app->getKeyboard().isPressed(GLFW_KEY_UP))
                 {
+                    // Check if meshmesh collided with a dog or a lamp then disable the speed up functionality
                     if(renderer->getPostprocessingIndex() == 0 && renderer->postprocessEffect == true)
                     {
                         current_sensitivity = current_sensitivity;
