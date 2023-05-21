@@ -237,8 +237,6 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          // "texture": "cat",
-          // "sampler": "default"
           "sampler": "default",
           "albedo" :"cat",
           "roughness":"roughness",
@@ -256,10 +254,7 @@
               "enabled": true
             }
           },
-          "tint": [1, 1, 1, 1],
-          // "texture": "fish",
-          // "sampler": "default"
-          
+          "tint": [1, 1, 1, 1],         
           "sampler": "default",
           "albedo" :"fish",
           "roughness":"black",
@@ -278,9 +273,6 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          // "texture": "fish2",
-          // "sampler": "default"
-          
           "sampler": "default",
           "albedo" :"fish2",
           "roughness":"roughness",
