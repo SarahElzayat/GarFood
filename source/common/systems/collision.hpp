@@ -31,10 +31,13 @@ namespace our
             lives = 3;
         }
 
+        // This function returns the score to be updated every time meshmesh collides
         int get_score()
         {
             return score;
         }
+
+        // This function returns the score to be updated every time meshmesh collides with a dog or a lamp
         int get_lives()
         {
             return lives;
@@ -43,7 +46,7 @@ namespace our
         // This should be called every frame to update all entities containing a CollisionComponent.
         bool update(World *world)
         {
-            
+
             std::vector<CollisionComponent *> collisionComponents;
             // For each entity in the world
             for (auto entity : world->getEntities())
@@ -54,13 +57,13 @@ namespace our
                 if (collision)
                 {
                     collisionComponents.emplace_back(collision);
-                    // std::cout << collision->getOwner()->name << '\n';
                 }
             }
 
+            // Traverse all the objects that contain a collision component
             for (auto collider : collisionComponents)
             {
-
+                // First we get the position, type and scale of the collider
                 std::string colliderType;
                 glm::vec3 colliderPosition;
                 glm::vec3 colliderScale;
@@ -69,15 +72,16 @@ namespace our
                 colliderPosition = collider->getOwner()->localTransform.position;
                 colliderScale = collider->getOwner()->localTransform.scale;
 
-                // std::cout << "Collider Type: " << colliderType << '\n';
-
+                // Check if the collider is meshmesh then we check for the obstacle type
                 if (colliderType == "meshmesh")
                 {
                     colliderPosition = collider->getOwner()->getLocalToWorldMatrix() * glm::vec4(colliderPosition, 1.0f);
                 }
 
+                // Travers the objects for the collision components once more to check for the obstacle
                 for (auto obstacle : collisionComponents)
                 {
+                    // Get the type, position and scale of the obstacle
                     std::string obstacleType;
                     glm::vec3 obstaclePosition;
                     glm::vec3 obstacleScale;
@@ -86,22 +90,28 @@ namespace our
                     obstaclePosition = obstacle->getOwner()->localTransform.position;
                     obstacleScale = obstacle->getOwner()->localTransform.scale;
 
-                    // std::cout << "Obstacle Type: " << obstacleType << '\n';
+                    // If the two objects are not the same type chaeck for collision
                     if (colliderType != obstacleType)
                     {
 
+                        // Check if any of the two objects is in the vacinity of the other then collision occurred
+                        // Meshmesh reached the finidh line -> the player won the game
                         if (glm::length(colliderPosition.z - obstaclePosition.z) < 5 && colliderType == "meshmesh" && obstacleType == "finish_line")
                         {
                             app->changeState("end");
                             return false;
                         }
 
+                        // Meshmesh collided with a fish -> the player gains 20 points
                         else if (glm::length(colliderPosition - obstaclePosition) < 1 && colliderType == "meshmesh" && obstacleType == "fish")
                         {
+                            // remove the fish
                             world->markForRemoval(obstacle->getOwner());
                             score += 20;
                             return false;
                         }
+
+                        // Meshmesh collided with a lamp -> results in a 10-point reduction in their score
                         else if ((glm::length(colliderPosition.x - obstaclePosition.x) < 0.25 && glm::length(colliderPosition.z - obstaclePosition.z) < 0.1) && colliderType == "meshmesh" && obstacleType == "lamp")
                         {
                             if (score >= 10)
@@ -111,8 +121,11 @@ namespace our
 
                             return true;
                         }
+
+                        // Meshmesh collided with a dog -> the player loses a life + a 10-point reduction in their score
                         else if (glm::length(colliderPosition.x - obstaclePosition.x) < 1 && glm::length(colliderPosition.z - obstaclePosition.z) < 2 && colliderType == "meshmesh" && obstacleType == "fekry")
                         {
+                            // remove the dog
                             world->markForRemoval(obstacle->getOwner());
 
                             if (score >= 10)

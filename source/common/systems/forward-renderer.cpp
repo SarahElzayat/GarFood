@@ -31,8 +31,6 @@ namespace our
             skyPipelineState.faceCulling.enabled = GL_TRUE;
             skyPipelineState.faceCulling.frontFace = GL_CW;
             skyPipelineState.faceCulling.culledFace = GL_BACK;
-            // skyPipelineState.blending.enabled = GL_TRUE;
-            // skyPipelineState.blending.equation = GL_FUNC_ADD;
 
             // Load the sky texture (note that we don't need mipmaps since we want to avoid any unnecessary blurring while rendering the sky)
             std::string skyTextureFile = config.value<std::string>("sky", "");
@@ -116,7 +114,7 @@ namespace our
             postprocessSampler->set(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             postprocessSampler->set(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-            //= Create the post processing shaders for each effect in postprocess
+            // Read the postprocessing shaders from the json file and add them to the shaders vector
             for (const auto &shader : config["postprocess"]) // Assume its an array of postprocessing shaders
             {
                 ShaderProgram *postprocessShader = new ShaderProgram();
@@ -126,12 +124,14 @@ namespace our
                 postprocessShaders.push_back(postprocessShader); //= push into vector of postprocessing shaders
             }
 
+            // Create a postprocessing material for each shader added to the vector
             if (postprocessShaders.size() > 0)
             {
                 postprocessMaterial = new TexturedMaterial();
                 postprocessMaterial->shader = postprocessShaders[0]; //= the default postprocessing effect does nothing.
                 postprocessMaterial->texture = colorTarget;
                 postprocessMaterial->sampler = postprocessSampler;
+
                 // The default options are fine but we don't need to interact with the depth buffer
                 // so it is more performant to disable the depth mask
                 postprocessMaterial->pipelineState.depthMask = false;
@@ -439,21 +439,22 @@ namespace our
             // lastly by specifying the number of vertices to be rendered
             // this means that this function begins from the index 0 and draws using the first three vertices
             // which draws a single triangle
-            glDrawArrays(GL_TRIANGLES, 0, 3);
-
-            // unbind the vertex array after it is done rendering
-            // glBindVertexArray(0);
+            glDrawArrays(GL_TRIANGLES, 0, 3);            
         }
     }
 
+
     void ForwardRenderer::setPostprocessingIndex(int index)
     {
+        // Update the postprocessing index with the index passed
+        // Make the postproessing material use the shader at the given index
         postprocessMaterial->shader = postprocessShaders[index];
         postprocessingIndex = index;
     }
 
     int ForwardRenderer::getPostprocessingIndex()
     {
+        // Return the postprocessing index
         return postprocessingIndex;
     }
 }
