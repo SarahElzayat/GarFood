@@ -102,5 +102,7 @@ class LostState : public our::State
         delete endMaterial->texture;
         delete endMaterial->shader;
         delete endMaterial;
+                our::clearAllAssets();
+
     }
 };

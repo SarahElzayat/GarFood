@@ -103,5 +103,7 @@ class EndState : public our::State
         delete endMaterial->texture;
         delete endMaterial->shader;
         delete endMaterial;
+        our::clearAllAssets();
+
     }
 };

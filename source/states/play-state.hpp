@@ -123,11 +123,6 @@ class Playstate : public our::State
         our::clearAllAssets();
     }
 
-        //     void imgui()
-        // { //= [OLD]: Will be called every frame in application.cpp to provide a slider for camera position and rotation (use camera component to get its own entity = camera)
-        //   //= A transparent ImGui window with no artifacts for score on top right.
-        //     ImGuiWindowFlags window_flags = 0;
-        //     window_flags |= ImGuiWindowFlags_NoBackground;
  
 
 };
