@@ -57,7 +57,6 @@ int main(int argc, char** argv) {
     app.registerState<EntityTestState>("entity-test");
     app.registerState<RendererTestState>("renderer-test");
     app.registerState<Lightstate>("light-test");
-    
     app.registerState<EndState>("end");
     app.registerState<LostState>("lost");
     // Then choose the state to run based on the option "start-scene" in the config
