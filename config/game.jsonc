@@ -11,11 +11,10 @@
   "scene": {
     "renderer": {
       "sky": "assets/textures/sky7.jpg",
-      "postprocess": 
-            [
-             "assets/shaders/postprocess/fisheye.frag",
-             "assets/shaders/postprocess/radial-blur.frag"
-            ]
+      "postprocess": [
+        "assets/shaders/postprocess/fisheye.frag",
+        "assets/shaders/postprocess/radial-blur.frag"
+      ]
     },
     "assets": {
       "shaders": {
@@ -28,13 +27,13 @@
           "fs": "assets/shaders/textured.frag"
         },
         "lighted": {
-            "vs": "assets/shaders/light.vert",
-            "fs": "assets/shaders/light.frag"
+          "vs": "assets/shaders/light.vert",
+          "fs": "assets/shaders/light.frag"
         }
       },
       "textures": {
         "road": "assets/textures/road5.jpg",
-        "darkerRoad":"assets/textures/road.jpg",
+        "darkerRoad": "assets/textures/road.jpg",
         "bird": "assets/textures/bird.jpg",
         "cat": "assets/textures/cat.jpg",
         "fish": "assets/textures/fish.jpg",
@@ -46,11 +45,11 @@
         "sun": "assets/textures/sun.jpg",
         "lamp": "assets/textures/lamp.png",
         "finish_line": "assets/textures/start.png",
-        "roughness":"assets/textures/asphalt/roughness.jpg",
-        "asplaht-albedo":"assets/textures/asphalt/albedo.jpg",
-        "asplaht-specular":"assets/textures/asphalt/specular.jpg",
-        "asplaht-emissive":"assets/textures/asphalt/emissive.jpg",
-        "black":"assets/textures/black.jpg",
+        "roughness": "assets/textures/asphalt/roughness.jpg",
+        "asplaht-albedo": "assets/textures/asphalt/albedo.jpg",
+        "asplaht-specular": "assets/textures/asphalt/specular.jpg",
+        "asplaht-emissive": "assets/textures/asphalt/emissive.jpg",
+        "black": "assets/textures/black.jpg",
         "white": "assets/textures/white.jpg",
         "yellow": "assets/textures/yellow.jpg",
         "grey": "assets/textures/grey.png"
@@ -86,9 +85,9 @@
           "tint": [1, 1, 1, 1],
           //"emissive":"asplaht-emissive"
           "sampler": "default",
-          "albedo" :"darkerRoad",
-          "roughness":"roughness",
-          "specular":"white"
+          "albedo": "darkerRoad",
+          "roughness": "roughness",
+          "specular": "white"
           // "ambient_occlusion":"black"
           //"emissive": "black"
           //"texture": "road"
@@ -110,10 +109,10 @@
           // "sampler": "default"
 
           "sampler": "default",
-          "albedo" :"pebbles",
-          "roughness":"roughness",
-          "specular":"white",
-          "ambient_occlusion":"black"
+          "albedo": "pebbles",
+          "roughness": "roughness",
+          "specular": "white",
+          "ambient_occlusion": "black"
         },
         "fence1": {
           "type": "lighted",
@@ -132,10 +131,10 @@
           // "sampler": "default"
 
           "sampler": "default",
-          "albedo" :"fence1",
-          "roughness":"black",
-          "specular":"white",
-          "ambient_occlusion":"black"
+          "albedo": "fence1",
+          "roughness": "black",
+          "specular": "white",
+          "ambient_occlusion": "black"
         },
         "bird": {
           "type": "textured",
@@ -166,10 +165,10 @@
           "tint": [1, 1, 1, 1],
 
           "sampler": "default",
-          "albedo" :"finish_line",
-          "roughness":"roughness",
-          "specular":"white",
-          "ambient_occlusion":"black"
+          "albedo": "finish_line",
+          "roughness": "roughness",
+          "specular": "white",
+          "ambient_occlusion": "black"
           //"emissive":"black"
         },
         "lamp": {
@@ -185,10 +184,10 @@
           },
           "tint": [1, 1, 1, 1],
           "sampler": "default",
-          "albedo" :"lamp",
-          "roughness":"roughness",
-          "specular":"white",
-          "ambient_occlusion":"black"
+          "albedo": "lamp",
+          "roughness": "roughness",
+          "specular": "white",
+          "ambient_occlusion": "black"
         },
         "dog": {
           "type": "lighted",
@@ -203,10 +202,10 @@
           },
           "tint": [1, 1, 1, 1],
           "sampler": "default",
-          "albedo" :"dog",
-          "roughness":"black",
-          "specular":"grey",
-          "ambient_occlusion":"dog"
+          "albedo": "dog",
+          "roughness": "black",
+          "specular": "grey",
+          "ambient_occlusion": "dog"
         },
         "sun": {
           "type": "textured",
@@ -236,10 +235,10 @@
           },
           "tint": [1, 1, 1, 1],
           "sampler": "default",
-          "albedo" :"cat",
-          "roughness":"roughness",
-          "specular":"black",
-          "ambient_occlusion":"black"
+          "albedo": "cat",
+          "roughness": "roughness",
+          "specular": "black",
+          "ambient_occlusion": "black"
         },
         "fish": {
           "type": "lighted",
@@ -252,12 +251,12 @@
               "enabled": true
             }
           },
-          "tint": [1, 1, 1, 1],         
+          "tint": [1, 1, 1, 1],
           "sampler": "default",
-          "albedo" :"fish",
-          "roughness":"black",
-          "specular":"white",
-          "ambient_occlusion":"black"
+          "albedo": "fish",
+          "roughness": "black",
+          "specular": "white",
+          "ambient_occlusion": "black"
         },
         "fish2": {
           "type": "lighted",
@@ -272,10 +271,10 @@
           },
           "tint": [1, 1, 1, 1],
           "sampler": "default",
-          "albedo" :"fish2",
-          "roughness":"roughness",
-          "specular":"white",
-          "ambient_occlusion":"black"
+          "albedo": "fish2",
+          "roughness": "roughness",
+          "specular": "white",
+          "ambient_occlusion": "black"
         }
       }
     },
@@ -305,14 +304,13 @@
               },
               {
                 "type": "Collision"
-              }
-              ,
+              },
               {
-                      "type": "Light",
-                      "lightType": "point",
-                      "diffuse": [0.5, 0.5, 0.5],
-                      "specular": [1, 1, 1],
-                      "attenuation":[0.01, 0.05, 0.01]
+                "type": "Light",
+                "lightType": "point",
+                "diffuse": [0.5, 0.5, 0.5],
+                "specular": [1, 1, 1],
+                "attenuation": [0.01, 0.05, 0.01]
               }
             ]
           }
@@ -1199,7 +1197,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [1, 0.5, -40],
@@ -1220,7 +1218,7 @@
           }
         ]
       },
-      {       
+      {
         "name": "fish",
 
         "position": [-3.5, 0.5, -50],
@@ -1241,7 +1239,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [3.5, 0.5, -60],
@@ -1262,7 +1260,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2.5, 0.5, -70],
@@ -1283,7 +1281,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0.25, 0.5, -80],
@@ -1304,7 +1302,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-2.5, 0.5, -90],
@@ -1325,7 +1323,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0, 0.5, -100],
@@ -1346,7 +1344,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [1, 0.5, -110],
@@ -1367,7 +1365,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [1, 0.5, -120],
@@ -1388,7 +1386,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0.5, 0.5, -130],
@@ -1409,7 +1407,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-3, 0.5, -140],
@@ -1430,7 +1428,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0.5, 0.5, -150],
@@ -1451,7 +1449,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [1.5, 0.5, -160],
@@ -1472,7 +1470,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2, 0.5, -170],
@@ -1493,7 +1491,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-2, 0.5, -180],
@@ -1514,7 +1512,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0, 0.5, -180],
@@ -1535,7 +1533,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2, 0.5, -180],
@@ -1556,7 +1554,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-2, 0.5, -182],
@@ -1577,7 +1575,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0, 0.5, -182],
@@ -1598,7 +1596,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2, 0.5, -182],
@@ -1619,7 +1617,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-2, 0.5, -184],
@@ -1640,7 +1638,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0, 0.5, -184],
@@ -1661,7 +1659,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2, 0.5, -184],
@@ -1682,7 +1680,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-2, 0.5, -186],
@@ -1703,7 +1701,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0, 0.5, -186],
@@ -1724,7 +1722,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2, 0.5, -186],
@@ -1745,7 +1743,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [2, 0.5, -188],
@@ -1766,7 +1764,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [0, 0.5, -188],
@@ -1787,7 +1785,7 @@
           }
         ]
       },
-      {        
+      {
         "name": "fish",
 
         "position": [-2, 0.5, -188],
@@ -1844,7 +1842,7 @@
         ]
       },
       {
-       "name": "fekry",
+        "name": "fekry",
 
         "position": [-2, -0.5, -25],
         "rotation": [-90, 0, 0],
@@ -1854,7 +1852,7 @@
             "type": "Mesh Renderer",
             "mesh": "dog",
             "material": "dog"
-          },  
+          },
           {
             "type": "Collision"
           }
@@ -2184,7 +2182,6 @@
           {
             "type": "Collision"
           }
-
         ]
       },
       {
@@ -2361,30 +2358,28 @@
         "name": "spot_light",
         "components": [
           {
-              "type": "Light",
-              "lightType": "spot",
-              "attenuation":[0,0.1,0],
-              "diffuse": [1, 0, 1],
-              "specular": [1, 0, 1],
-              "cone_angles":[20, 10]
+            "type": "Light",
+            "lightType": "spot",
+            "attenuation": [0, 0.1, 0],
+            "diffuse": [1, 0, 1],
+            "specular": [1, 0, 1],
+            "cone_angles": [20, 10]
           }
-          
         ]
-      }
-      ,
+      },
       {
         "position": [20, 3, -2],
         "rotation": [0, 0, 0],
         "components": [
-            {
-                "type": "Light",
-                "lightType": "directional",
-                "direction": [-1, -1, 0],
-                "diffuse": [1, 1, 0],
-                "specular": [1, 1, 0]
-            }
+          {
+            "type": "Light",
+            "lightType": "directional",
+            // "direction": [-1, -1, 0],
+            "diffuse": [1, 1, 0],
+            "specular": [1, 1, 0]
+          }
         ]
-    }
+      }
     ]
   }
 }
