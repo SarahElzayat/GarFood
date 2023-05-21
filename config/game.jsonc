@@ -11,7 +11,7 @@
   "scene": {
     "renderer": {
       "sky": "assets/textures/sky7.jpg",
-      "postprocess": "assets/shaders/postprocess/distortion.frag",
+      "postprocess": "assets/shaders/postprocess/vignette.frag",
       "addedTex": "assets/textures/water.png"
     },
     "assets": {
@@ -38,12 +38,12 @@
         "sun": "assets/textures/sun.jpg",
         "lamp": "assets/textures/lamp.png",
         "finish_line": "assets/textures/start.png"
-        // "water": "assets/textures/water.png"
       },
       "meshes": {
         "plane": "assets/models/plane.obj",
-        
+        "bird": "assets/models/bird.obj",
         "cat": "assets/models/cat.obj",
+        "fish": "assets/models/fish.obj",
         "fish2": "assets/models/fish2.obj",
         "sun": "assets/models/sphere.obj",
         "dog": "assets/models/aus_dog.obj",
@@ -137,7 +137,7 @@
           "shader": "textured",
           "pipelineState": {
             "faceCulling": {
-              "enabled": false
+              "enabled": true
             },
             "depthTesting": {
               "enabled": true
@@ -1202,7 +1202,7 @@
       {        
         "name": "fish",
 
-        "position": [-2, 0.5, -70],
+        "position": [2.5, 0.5, -70],
         "rotation": [-90, 0, 0],
         "scale": [0.06, 0.06, 0.06],
         "components": [
@@ -1220,6 +1220,532 @@
           }
         ]
       },
+      {        
+        "name": "fish",
+
+        "position": [0.25, 0.5, -80],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-2.5, 0.5, -90],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0, 0.5, -100],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [1, 0.5, -110],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [1, 0.5, -120],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0.5, 0.5, -130],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-3, 0.5, -140],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0.5, 0.5, -150],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [1.5, 0.5, -160],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [2, 0.5, -170],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-2, 0.5, -180],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0, 0.5, -180],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [2, 0.5, -180],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-2, 0.5, -182],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0, 0.5, -182],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [2, 0.5, -182],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-2, 0.5, -184],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0, 0.5, -184],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [2, 0.5, -184],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-2, 0.5, -186],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0, 0.5, -186],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [2, 0.5, -186],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [2, 0.5, -188],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [0, 0.5, -188],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {        
+        "name": "fish",
+
+        "position": [-2, 0.5, -188],
+        "rotation": [-90, 0, 0],
+        "scale": [0.06, 0.06, 0.06],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "fish2",
+            "material": "fish2"
+          },
+          {
+            "type": "Movement",
+            "angularVelocity": [0, 70, 0]
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+
       ///         penalties       ///
       {
         "name": "fekry",
@@ -1309,6 +1835,261 @@
         "name": "fekry",
 
         "position": [2, -0.5, -55],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-1.5, -0.5, -65],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [3, -0.5, -75],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-3, -0.5, -85],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [2.5, -0.5, -95],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [1.5, -0.5, -100],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-1.5, -0.5, -100],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [2, -0.5, -110],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-3, -0.5, -120],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [3, -0.5, -130],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-3, -0.5, -130],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [2.5, -0.5, -140],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-2, -0.5, -150],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [2, -0.5, -155],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-1, -0.5, -160],
+        "rotation": [-90, 0, 0],
+        "scale": [0.1, 0.1, 0.1],
+        "components": [
+          {
+            "type": "Mesh Renderer",
+            "mesh": "dog",
+            "material": "dog"
+          },
+          {
+            "type": "Collision"
+          }
+        ]
+      },
+      {
+        "name": "fekry",
+
+        "position": [-2, -0.5, -170],
         "rotation": [-90, 0, 0],
         "scale": [0.1, 0.1, 0.1],
         "components": [
