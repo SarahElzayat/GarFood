@@ -13,14 +13,17 @@
 namespace our
 {
 
-    // The movement system is responsible for moving every entity which contains a MovementComponent.
+    // The collision system is responsible for checking every entity which contains a CollisionComponent.
     // This system is added as a simple example for how use the ECS framework to implement logic.
     // For more information, see "common/components/collision.hpp"
     class CollisionSystem
     {
         Application *app; // The application in which the state runs
         FreeCameraControllerSystem *fccs;
+        // The player's score
         int score = 0;
+
+        // The player's lives
         int lives = 3;
 
     public:
@@ -44,6 +47,9 @@ namespace our
         }
 
         // This should be called every frame to update all entities containing a CollisionComponent.
+        // The function returns a boolean to indicate the type of entity meshmesh collided with 
+        // If meshmesh collided with a dog or a lamp the function returns true 
+        // Otherwise it returns false
         bool update(World *world)
         {
 
@@ -105,9 +111,8 @@ namespace our
                         // Meshmesh collided with a fish -> the player gains 20 points
                         else if (glm::length(colliderPosition - obstaclePosition) < 1 && colliderType == "meshmesh" && obstacleType == "fish")
                         {
-                            // remove the fish
-                            world->markForRemoval(obstacle->getOwner());
-                            score += 20;
+                            world->markForRemoval(obstacle->getOwner());    // mark the fish for removal so that it can be deleted when rendering the next frame
+                            score += 20;    // Increase the player's score by 20 points
                             return false;
                         }
 

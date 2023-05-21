@@ -58,21 +58,24 @@ class Playstate : public our::State
         // And finally we use the renderer system to draw the scene
         world.deleteMarkedEntities();
 
+        // Check if the update function of the collision component
         if(collided == true)
         {
-            renderer.postprocessEffect = true;
-            renderer.setPostprocessingIndex(0);
-            collided = false;
-            waitFor = 0;
+            renderer.postprocessEffect = true; // set the postprocessing effect in the forward renderer to true to apply the postprocessing effect when meshmesh collides
+            renderer.setPostprocessingIndex(0); // set the index to point to the fish-eye fragment shader
+            collided = false;   // set collided to false
+            waitFor = 0;    // reset the waitFor variable to begin counting
         }
 
+        // apply the postprocess effect for a certain time before disabling it
         if(waitFor == 60 && renderer.postprocessEffect == true)
         {
             renderer.postprocessEffect = false;
-            waitFor = 0;
+            waitFor = 0; // reset 
         }
         else
         {
+            // If the condition isn't met increment the waitFor 
             waitFor++; 
         }
 
@@ -122,12 +125,4 @@ class Playstate : public our::State
         // and we delete all the loaded assets to free memory on the RAM and the VRAM
         our::clearAllAssets();
     }
-
-        //     void imgui()
-        // { //= [OLD]: Will be called every frame in application.cpp to provide a slider for camera position and rotation (use camera component to get its own entity = camera)
-        //   //= A transparent ImGui window with no artifacts for score on top right.
-        //     ImGuiWindowFlags window_flags = 0;
-        //     window_flags |= ImGuiWindowFlags_NoBackground;
- 
-
 };
