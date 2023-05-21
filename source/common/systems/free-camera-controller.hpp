@@ -75,7 +75,7 @@ namespace our
                 if (app->getKeyboard().isPressed(GLFW_KEY_W) || app->getKeyboard().isPressed(GLFW_KEY_UP))
                 {
                     // Check if meshmesh collided with a dog or a lamp then disable the speed up functionality
-                    if(renderer->getPostprocessingIndex() == 0 && renderer->postprocessEffect == true)
+                    if (renderer->getPostprocessingIndex() == 0 && renderer->postprocessEffect == true)
                     {
                         current_sensitivity = current_sensitivity;
                     }
@@ -87,11 +87,12 @@ namespace our
                     }
                 }
 
+                // Slow down
                 if (app->getKeyboard().isPressed(GLFW_KEY_S) || app->getKeyboard().isPressed(GLFW_KEY_DOWN))
                 {
                     current_sensitivity *= controller->slowdownFactor;
                 }
-
+                // Disable postprcessing effect when the key is released
                 if (app->getKeyboard().justReleased(GLFW_KEY_W) || app->getKeyboard().justReleased(GLFW_KEY_UP))
                 {
                     renderer->postprocessEffect = false;
@@ -100,9 +101,9 @@ namespace our
                 position += front * (deltaTime * current_sensitivity.z); // multiply the position sensitivity by the speed up/ slow down factor
 
                 // A & D moves the player left or right
-                if ((app->getKeyboard().isPressed(GLFW_KEY_D) || app->getKeyboard().isPressed(GLFW_KEY_RIGHT) )&& position.x < 11)
+                if ((app->getKeyboard().isPressed(GLFW_KEY_D) || app->getKeyboard().isPressed(GLFW_KEY_RIGHT)) && position.x < 11)
                     position += right * (deltaTime * current_sensitivity.x);
-                if ((app->getKeyboard().isPressed(GLFW_KEY_A) || app->getKeyboard().isPressed(GLFW_KEY_LEFT) )&& position.x > -11)
+                if ((app->getKeyboard().isPressed(GLFW_KEY_A) || app->getKeyboard().isPressed(GLFW_KEY_LEFT)) && position.x > -11)
                     position -= right * (deltaTime * current_sensitivity.x);
             }
         }
