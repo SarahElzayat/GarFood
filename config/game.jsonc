@@ -4,7 +4,7 @@
     "title": "Garfood",
     "size": {
       "width": 1280,
-      "height": 720
+      "height": 600
     },
     "fullscreen": true
   },
@@ -73,10 +73,10 @@
       },
       "materials": {
         "road": {
-          // "type": "lighted",
-          // "shader": "lighted",
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
+          // "type": "textured",
+          // "shader": "textured",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -87,18 +87,18 @@
           },
           "tint": [1, 1, 1, 1],
           //"emissive":"asplaht-emissive"
-          // "sampler": "default",
-          // "albedo" :"road",
-          // "roughness":"roughness",
-          // "specular":"white",
+          "sampler": "default",
+          "albedo" :"darkerRoad",
+          "roughness":"roughness",
+          "specular":"white"
           // "ambient_occlusion":"black"
           //"emissive": "black"
-          "texture": "road",
-          "sampler": "default"
+          //"texture": "road"
+          // "sampler": "default"
         },
         "pebbles": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -108,18 +108,18 @@
             }
           },
           "tint": [1, 1, 1, 1],
-          "texture": "pebbles",
-          "sampler": "default"
+          // "texture": "pebbles",
+          // "sampler": "default"
 
-          // "sampler": "default",
-          // "albedo" :"pebbles",
-          // "roughness":"roughness",
-          // "specular":"white",
-          // "ambient_occlusion":"black"
+          "sampler": "default",
+          "albedo" :"pebbles",
+          "roughness":"roughness",
+          "specular":"white",
+          "ambient_occlusion":"black"
         },
         "fence1": {
-          "type": "textured",
-          "shader": "textured",
+          "type": "lighted",
+          "shader": "lighted",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
@@ -130,14 +130,14 @@
           },
           "tint": [1, 1, 1, 1],
           "transparent": true,
-          "texture": "fence1",
-          "sampler": "default"
+          // "texture": "fence1",
+          // "sampler": "default"
 
-          // "sampler": "default",
-          // "albedo" :"fence1",
-          // "roughness":"black",
-          // "specular":"white",
-          // "ambient_occlusion":"black"
+          "sampler": "default",
+          "albedo" :"fence1",
+          "roughness":"black",
+          "specular":"white",
+          "ambient_occlusion":"black"
         },
         "bird": {
           "type": "textured",
@@ -304,7 +304,7 @@
         "children": [
           {
             "name": "meshmesh",
-            "position": [0, -1, -0.9],
+            "position": [0, -1, -1],
             "rotation": [-90, 0, 180],
             "scale": [0.05, 0.05, 0.05],
             "components": [
@@ -315,16 +315,16 @@
               },
               {
                 "type": "Collision"
-              },
+              }
+              ,
               {
                       "type": "Light",
-                      "position": [1, 1.5, 0],
                       "rotation": [0, 0, -1],
-                      "lightType": "point",
-                      "diffuse": [0.8, 0.5, 0],
-                      "specular": [1, 1, 0],
-                      "cone_angles":[50, 0],
-                      "attenuation":[0, 0.08, 0]
+                      "lightType": "spot",
+                      "diffuse": [0.5, 0.5, 0.5],
+                      "specular": [1, 1, 1],
+                      "cone_angles":[90, 50],
+                      "attenuation":[0.01, 0.005, 0.01]
               }
             ]
           }
@@ -2375,16 +2375,17 @@
               "type": "Light",
               "lightType": "spot",
               "attenuation":[0,0.1,0],
-              "position":  [0, 2, -210],
-              "direction": [0, 0, 1],
-              "diffuse": [0, 0, 1],
-              "specular": [0, 0, 1],
+              // "position":  [0, 2, -200],
+              // "direction": [0, -1, 0],
+              "diffuse": [1, 0, 1],
+              "specular": [1, 0, 1],
               "cone_angles.inner": 10,
-              "cone_angles.outer": 40
+              "cone_angles.outer": 80
           }
           
         ]
-      },
+      }
+      ,
       {
         "position": [20, 3, -2],
         "rotation": [0, 0, 0],
@@ -2393,8 +2394,8 @@
                 "type": "Light",
                 "lightType": "directional",
                 "direction": [-1, -1, 0],
-                "diffuse": [0, 1, 1],
-                "specular": [0, 1, 1]
+                "diffuse": [1, 1, 0],
+                "specular": [1, 1, 0]
             }
         ]
     }
