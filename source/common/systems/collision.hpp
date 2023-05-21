@@ -13,17 +13,17 @@
 namespace our
 {
 
-    // The movement system is responsible for moving every entity which contains a MovementComponent.
-    // This system is added as a simple example for how use the ECS framework to implement logic.
-    // For more information, see "common/components/collision.hpp"
+    // The collision system is responsible for detecting collision in every entity which contains a Collision Component.
+
     class CollisionSystem
     {
         Application *app; // The application in which the state runs
-        FreeCameraControllerSystem *fccs;
-        int score = 0;
-        int lives = 3;
+        int score = 0; // Initial player's score
+        int lives = 3; // Lives no. the denotes the number of times the player is allowed to collide with a dog
 
     public:
+
+    // Inital set for the class
         void enter(Application *app)
         {
             this->app = app;
@@ -133,6 +133,7 @@ namespace our
                                 score -= 10;
                             }
                             lives--;
+                            // If player's out of lives, the state is changed to the lost state
                             if (lives == 0)
                             {
                                 app->changeState("lost");
