@@ -75,8 +75,6 @@
         "road": {
           "type": "lighted",
           "shader": "lighted",
-          // "type": "textured",
-          // "shader": "textured",
           "pipelineState": {
             "faceCulling": {
               "enabled": false
