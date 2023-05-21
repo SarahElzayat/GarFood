@@ -266,9 +266,9 @@ namespace our
              if (auto lightingMaterial = dynamic_cast<LightMaterial *>(command.material); lightingMaterial)
             {
                 lightingMaterial->shader->set("VP", VP);
-                //lightingMaterial->shader->set("eye", eyeTrans);
                 lightingMaterial->shader->set("M", command.localToWorld);
                 lightingMaterial->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
+                command.material->shader->set("camera_position", glm::vec3(camera->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0,1)));
 
                 //Send the light and its data to the fragement shaders
                 lightingMaterial->shader->set("light_count", (int)lightings.size());
@@ -280,7 +280,7 @@ namespace our
                 for (unsigned i = 0; i < lightings.size(); i++)
                 {
                     glm::vec3 lightPosition = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
-                    glm::vec3 lightDirection = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lightings[i]->direction, 0);
+                    glm::vec3 lightDirection = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, -1, 0);
 
 
                     std::string lightName = "lights[" + std::to_string(i) + "]";
@@ -359,9 +359,10 @@ namespace our
             if (auto lightingMaterial = dynamic_cast<LightMaterial *>(command.material); lightingMaterial)
             {
                 lightingMaterial->shader->set("VP", VP);
-                //lightingMaterial->shader->set("eye", eyeTrans);
                 lightingMaterial->shader->set("M", command.localToWorld);
                 lightingMaterial->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
+                command.material->shader->set("camera_position", glm::vec3(camera->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0,1)));
+                 
 
                 // send the lights count and other data (pos, direc , ..) to the fragement shader
                 lightingMaterial->shader->set("light_count", (int)lightings.size());
@@ -373,7 +374,7 @@ namespace our
                 for (unsigned i = 0; i < lightings.size(); i++)
                 {
                     glm::vec3 lightPosition = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1);
-                    glm::vec3 lightDirection = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(lightings[i]->direction, 0);
+                    glm::vec3 lightDirection = lightings[i]->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, -1, 0);
 
                     std::string lightName = "lights[" + std::to_string(i) + "]";
 
