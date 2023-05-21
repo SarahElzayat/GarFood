@@ -1403,6 +1403,7 @@
             "mesh": "lamp",
             "material": "lamp"
           }
+
         ]
       },
       {
@@ -1538,19 +1539,19 @@
         ]
       },
       {
-        "position": [0, 2, -200],
+        "position": [0, 2, -205],
         "name": "spot_light",
         "components": [
           {
               "type": "Light",
               "lightType": "spot",
               "attenuation":[0,0.1,0],
-              "position":  [0, 2, -200],
-              "direction": [0, -1, 0],
-              "diffuse": [1, 0, 1],
-              "specular": [1, 0, 1],
+              "position":  [0, 2, -210],
+              "direction": [0, 0, 1],
+              "diffuse": [0, 0, 1],
+              "specular": [0, 0, 1],
               "cone_angles.inner": 10,
-              "cone_angles.outer": 80
+              "cone_angles.outer": 40
           }
           
         ]
