@@ -52,7 +52,7 @@ class Playstate : public our::State
     {
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
-        cameraController.update(&world, (float)deltaTime);
+        cameraController.update(&world, (float)deltaTime, &renderer);
         bool collided = collisionSystem.update(&world);
 
         // And finally we use the renderer system to draw the scene
@@ -61,11 +61,12 @@ class Playstate : public our::State
         if(collided == true)
         {
             renderer.postprocessEffect = true;
+            renderer.setPostprocessingIndex(0);
             collided = false;
             waitFor = 0;
         }
 
-        if(waitFor == 100 && renderer.postprocessEffect == true)
+        if(waitFor == 60 && renderer.postprocessEffect == true)
         {
             renderer.postprocessEffect = false;
             waitFor = 0;

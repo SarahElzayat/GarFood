@@ -24,6 +24,7 @@ namespace our
         bool start = false; // Whether the user started
     public:
         // When a state enters, it should call this function and give it the pointer to the application
+        bool postprocessingEffect = false;
         void enter(Application *app)
         {
             this->app = app;
@@ -31,7 +32,7 @@ namespace our
         }
 
         // This should be called every frame to update all entities containing a FreeCameraControllerComponent
-        void update(World *world, float deltaTime)
+        void update(World *world, float deltaTime, ForwardRenderer *renderer)
         {
             // First of all, we search for an entity containing both a CameraComponent and a FreeCameraControllerComponent
             // As soon as we find one, we break
@@ -72,10 +73,28 @@ namespace our
                 // We change the camera position based on the keys WASD/QE
                 // S & W moves the player slow down and speed up
                 if (app->getKeyboard().isPressed(GLFW_KEY_W) || app->getKeyboard().isPressed(GLFW_KEY_UP))
-                    current_sensitivity *= controller->speedupFactor;
+                {
+                    if(renderer->getPostprocessingIndex() == 0 && renderer->postprocessEffect == true)
+                    {
+                        current_sensitivity = current_sensitivity;
+                    }
+                    else
+                    {
+                        current_sensitivity *= controller->speedupFactor;
+                        renderer->postprocessEffect = true;
+                        renderer->setPostprocessingIndex(1);
+                    }
+                }
 
                 if (app->getKeyboard().isPressed(GLFW_KEY_S) || app->getKeyboard().isPressed(GLFW_KEY_DOWN))
+                {
                     current_sensitivity *= controller->slowdownFactor;
+                }
+
+                if (app->getKeyboard().justReleased(GLFW_KEY_W) || app->getKeyboard().justReleased(GLFW_KEY_UP))
+                {
+                    renderer->postprocessEffect = false;
+                }
 
                 position += front * (deltaTime * current_sensitivity.z); // multiply the position sensitivity by the speed up/ slow down factor
 

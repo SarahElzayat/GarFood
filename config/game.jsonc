@@ -6,13 +6,16 @@
       "width": 1280,
       "height": 720
     },
-    "fullscreen": false
+    "fullscreen": true
   },
   "scene": {
     "renderer": {
       "sky": "assets/textures/sky7.jpg",
-      "postprocess": "assets/shaders/postprocess/fisheye.frag",
-      "addedTex": "assets/textures/water.png"
+      "postprocess": 
+            [
+             "assets/shaders/postprocess/fisheye.frag",
+             "assets/shaders/postprocess/radial-blur.frag"
+            ]
     },
     "assets": {
       "shaders": {

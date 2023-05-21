@@ -116,23 +116,26 @@ namespace our
             postprocessSampler->set(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             postprocessSampler->set(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-            // Create the post processing shader
-            ShaderProgram *postprocessShader = new ShaderProgram();
-            postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
-            postprocessShader->attach(config.value<std::string>("postprocess", ""), GL_FRAGMENT_SHADER);
-            postprocessShader->link();
-            if(config.contains("addedTex")){
-                addedTexture = texture_utils::loadImage(config.value<std::string>("addedTex", ""));
+            //= Create the post processing shaders for each effect in postprocess
+            for (const auto &shader : config["postprocess"]) // Assume its an array of postprocessing shaders
+            {
+                ShaderProgram *postprocessShader = new ShaderProgram();
+                postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
+                postprocessShader->attach(shader, GL_FRAGMENT_SHADER);
+                postprocessShader->link();
+                postprocessShaders.push_back(postprocessShader); //= push into vector of postprocessing shaders
             }
 
-            // Create a post processing material
-            postprocessMaterial = new TexturedMaterial();
-            postprocessMaterial->shader = postprocessShader;
-            postprocessMaterial->texture = colorTarget;
-            postprocessMaterial->sampler = postprocessSampler;
-            // The default options are fine but we don't need to interact with the depth buffer
-            // so it is more performant to disable the depth mask
-            postprocessMaterial->pipelineState.depthMask = false;
+            if (postprocessShaders.size() > 0)
+            {
+                postprocessMaterial = new TexturedMaterial();
+                postprocessMaterial->shader = postprocessShaders[0]; //= the default postprocessing effect does nothing.
+                postprocessMaterial->texture = colorTarget;
+                postprocessMaterial->sampler = postprocessSampler;
+                // The default options are fine but we don't need to interact with the depth buffer
+                // so it is more performant to disable the depth mask
+                postprocessMaterial->pipelineState.depthMask = false;
+            }
         }
     }
 
@@ -429,15 +432,6 @@ namespace our
             // first bind the post process vertex array to draw the traingle
             glBindVertexArray(postProcessVertexArray);
 
-            // send other effect
-            // if(addedTexture){
-            //     std::cout<<"aaah";
-            //     glActiveTexture(GL_TEXTURE1);
-            //     addedTexture->bind();
-            //     postprocessMaterial->sampler->bind(1);
-            //     postprocessMaterial->shader->set("distortion_sampler", 1);
-            // }
-
             // use glDrawArrays to draw the triangle
             // first by specifying the mode of what we're drawing which is GL_TRIANGLES
             // then by specifying the the fisrt vertex to be rendered in the bound vertex array
@@ -451,4 +445,14 @@ namespace our
         }
     }
 
+    void ForwardRenderer::setPostprocessingIndex(int index)
+    {
+        postprocessMaterial->shader = postprocessShaders[index];
+        postprocessingIndex = index;
+    }
+
+    int ForwardRenderer::getPostprocessingIndex()
+    {
+        return postprocessingIndex;
+    }
 }
