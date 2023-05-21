@@ -310,10 +310,10 @@
               {
                       "type": "Light",
                       "rotation": [0, 0, -1],
-                      "lightType": "spot",
+                      "lightType": "point",
                       "diffuse": [0.5, 0.5, 0.5],
                       "specular": [1, 1, 1],
-                      "cone_angles":[90, 50],
+                      //"cone_angles":[90, 50],
                       "attenuation":[0.01, 0.05, 0.01]
               }
             ]
