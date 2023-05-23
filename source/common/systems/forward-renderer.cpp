@@ -282,7 +282,7 @@ namespace our
                 lightingMaterial->shader->set("VP", VP);
                 lightingMaterial->shader->set("M", command.localToWorld);
                 lightingMaterial->shader->set("M_IT", glm::transpose(glm::inverse(command.localToWorld)));
-                command.material->shader->set("camera_position", glm::vec3(camera->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1)));
+                command.material->shader->set("camera_position", glm::vec3(camera->getOwner()->getLocalToWorldMatrix() * glm::vec4(0, 0, 0, 1))); //normalize
 
                 // Send the lights' data to the fragement shaders
                 lightingMaterial->shader->set("light_count", (int)lightings.size());

@@ -120,6 +120,7 @@ set(STATES_SOURCES
         source/states/light-test-state.hpp
         source/states/end-state.hpp
         source/states/lost-state.hpp
+        
 )
 
 
