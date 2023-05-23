@@ -33,7 +33,11 @@ Technologies used in the project:
 
 <h2> 🎥 Demo video </h2>
 
-https://github.com/SarahElzayat/GarFood/assets/76779284/fb23bb29-ea13-4b69-aa75-82857a313f18
+
+
+https://github.com/SarahElzayat/GarFood/assets/76779284/8d8260e1-4cd3-4a3c-8840-918a5b19bdd4
+
+
 
 <h2> 👥 Collaborators </h2>
 
