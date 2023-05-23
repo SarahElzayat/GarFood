@@ -11,7 +11,7 @@
 	<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Opengl-logo.svg/2560px-Opengl-logo.svg.png" alt="OpenGL" title="OpenGL"/></code>
 	<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/GLM_logo.png" alt="GLM" title="GLM"/></code>
 	<code><img height="50" src="https://www.saashub.com/images/app/service_logos/38/b48cc85cebb2/large.png?1553244024" alt="GLFW" title="GLFW"/></code>
-<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/9/96/CMake-logo-triangle-high-res.png" alt="GLFW" title="GLFW"/></code>
+<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/9/96/CMake-logo-triangle-high-res.png" alt="GLFW" title="GLFW"/></code></div>
 
 Technologies used in the project:
 
