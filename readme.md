@@ -33,7 +33,10 @@ Technologies used in the project:
 
 <h2> 🎥 Demo video </h2>
 
-![1684863515814](image/readme/1684863515814.png)
+
+Uploading demo.mp4…
+
+
 
 <h2> 👥 Collaborators </h2>
 
